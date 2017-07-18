@@ -1,0 +1,233 @@
+<!--index.wxml-->
+<!-- 筛选工具栏 -->
+<view class="toolbar">
+    <view>智能排序
+        <image src="../../image/arrow.png"></image>
+    </view>
+    <view bindtap="brand">品牌
+        <image src="../../image/arrow.png"></image>
+    </view>
+    <view>价格
+        <image src="../../image/arrow.png"></image>
+    </view>
+    <view bindtap="filter">筛选
+        <image src="../../image/arrow.png"></image>
+    </view>
+</view>
+
+<!-- 展示栏 -->
+<view class="show" wx:if="{{catename||seriesname}}">
+    <view class="subscript" wx:if="{{catename}}" data-cateid="{{cateid}}" bindtap="cancelcate">{{catename}}
+        <image src="../../image/cross.png"></image>
+    </view>
+    <view class="subscript" wx:if="{{seriesname}}" data-seriesid="{{seriesid}}" bindtap="cancelseries">{{seriesname}}
+        <image src="../../image/cross.png"></image>
+    </view>
+    <view class="subscript" id="addseries" bindtap="justchoseseries" wx:if="{{catename&&!seriesname}}">
+        <image src="../../image/add.png"></image>选择车系
+    </view>
+</view>
+
+
+
+<!-- 列表 -->
+<view class="listcase">
+
+
+    <!-- 单列表 -->
+    <view class="case" wx:for="{{3}}">
+        <view class="pic">
+            <image src="../../image/car1.jpg"></image>
+        </view>
+        <view class="info">
+            <view class="title">玛莎拉蒂</view>
+            <view class="detail">2013年/6.2万公里</view>
+            <view class="price">198万 <text>新车价</text> <text class="theprice">610万</text> </view>
+        </view>
+    </view>
+    <!-- 单列表 -->
+
+</view>
+<!-- 列表 -->
+
+
+
+<!-- 品牌筛选主页面 -->
+<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px">
+    <view class="fakehead">
+        <image bindtap="brand" src="../../image/arrow.png"></image> 品牌选择</view>
+    <scroll-view bindscroll="subbrandclose" scroll-with-animation scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
+        <!-- 最热品牌 -->
+        <view class="popular">
+            <view class="casetitle">热门品牌</view>
+            <!-- 单个热门品牌 -->
+            <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
+                <view class="pic">
+                    <image src="../../image/Benz.png"></image>
+                </view>
+                <view class="polularname">奔驰</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+
+        <!-- 品牌列表 -->
+        <view class="listbox" id="all">
+            <view class="brandlist_title">#</view>
+            <view class="brandlist">
+                <text class="brandname">不限品牌</text>
+            </view>
+        </view>
+        <view class="listbox" wx:for="{{listbox}}" id="{{item.name}}">
+            <view class="brandlist_title">{{item.name}}</view>
+            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.series}}" data-cateid="{{item.id}}" data-catename="{{item.catename}}">
+                <image class="brandlogo" src="../../image/Benz.png"></image>
+                <text class="brandname">{{item.catename}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 右侧导航栏 -->
+    <view class="anchor">
+        <view data-index="all" bindtap="toscroll">#</view>
+        <view wx:for="{{listbox}}" data-index="{{item.name}}" bindtap="toscroll">{{item.name}}</view>
+
+    </view>
+
+    <!-- 副品牌筛选页面 -->
+    <view class="subbrand {{subbrandstatus&&serieslist?'subbrandon':'subbrandoff'}}" style="height:{{myheight}}px;width:500rpx;">
+        <view class="mainlogo">
+            <image src="../../image/Benz.png"></image>
+        </view>
+        <view class="subbrand_title">选择车系
+        </view>
+        <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-id="{{item.id}}" data-name="{{item.name}}">
+            <view class="series_pic">
+                <image src="../../image/jeep.jpg"></image>
+            </view>
+            <view class="series_name">{{item.name}}</view>
+        </view>
+    </view>
+</view>
+
+<!-- 高级筛选页面-->
+<view class="filter {{filterstatus?'filteron':'filteroff'}}" style="height:{{myheight}}px">
+    <view class="fakehead">
+        <image bindtap="filter" src="../../image/arrow.png"></image>高级筛选</view>
+    <scroll-view scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
+        <!--车型-->
+        <view class="version">
+            <view class="casetitle">车型</view>
+            <!-- 单个热门品牌 -->
+            <view class="versioncase" wx:for="{{7}}" bindtap="subbrand">
+                <view class="pic">
+                    <image src="../../image/tank.png"></image>
+                </view>
+                <view class="versionname">这是奔驰</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!-- 车牌所在地  -->
+        <view class="options">
+            <view class="casetitle">车牌所在地</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{location}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!-- 热门车  -->
+        <view class="options">
+            <view class="casetitle">热门车</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{7}}" bindtap="subbrand">
+                <view class="optionsname">选项</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!--控件-->
+        <view class="selector">
+            <view class="casetitle">车龄/{{minage}}-{{maxage}}年</view>
+            <view class="selectbox">
+                <!-- 最大值 -->
+                <slider min="0" max="8"  value="{{maxage}}" backgroundColor="#f4f4f4" activeColor="rgba(2, 107, 200,1)" bindchange="maxage" />
+                <!-- 最小值 -->
+                <slider min="0" max="8" value="{{minage}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="minage" />
+            </view>
+            <view class="parameter"> <view wx:for="{{5}}">{{index*2}}</view> </view>
+        </view>
+        <view class="selector">
+            <view class="casetitle">行程/{{mindistance}}-{{maxdistance}}万公里</view>
+            <view class="selectbox">
+                <!-- 最大值 -->
+                <slider min="0" max="15" step="1"  value="{{maxdistance}}" backgroundColor="#f4f4f4" activeColor="rgba(2, 107, 200,1)" bindchange="maxdistance" />
+                <!-- 最小值 -->
+                <slider min="0" max="15" step="1" value="{{mindistance}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="mindistance" />
+            </view>
+            <view class="parameter2"> <view wx:for="{{6}}">{{index*3}}</view> </view>
+        </view>
+        <view class="selector">
+            <view class="casetitle">排量/{{minexhaust}}-{{maxexhaust}}升</view>
+            <view class="selectbox">
+                <!-- 最大值 -->
+                <slider min="0" max="5" step="0.5"  value="{{maxexhaust}}" backgroundColor="#f4f4f4" activeColor="rgba(2, 107, 200,1)" bindchange="maxexhaust" />
+                <!-- 最小值 -->
+                <slider min="0" max="5" step="0.5" value="{{minexhaust}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="minexhaust" />
+            </view>
+            <view class="parameter3"> <view wx:for="{{5}}">{{index}}</view> <view >不限</view> </view>
+        </view>
+        <!-- 排放标准  -->
+        <view class="options">
+            <view class="casetitle">排放标准</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{exhaust}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!-- 颜色  -->
+        <view class="options">
+            <view class="casetitle">颜色</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{color}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}} <view class="colorball" style="background: {{item.color}}" ></view> </view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!-- 变速箱  -->
+        <view class="options">
+            <view class="casetitle">变速箱</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{gear}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+        <!-- 座位数  -->
+        <view class="options">
+            <view class="casetitle">座位数</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{seat}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+            <!-- 燃油类型  -->
+        <view class="options">
+            <view class="casetitle">燃油类型</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{fuel}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+            <!-- 国别  -->
+        <view class="options">
+            <view class="casetitle">国别</view>
+            <!-- 单个热门品牌 -->
+            <view class="optionscase" wx:for="{{nation}}" bindtap="subbrand">
+                <view class="optionsname">{{item.name}}</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+
+    </scroll-view>
+</view>

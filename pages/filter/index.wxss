@@ -1,0 +1,390 @@
+/* 工具栏 */
+.toolbar{
+    z-index: 99;
+    padding: 10rpx 30rpx;
+    border-bottom: 4rpx solid #f4f4f4;
+}
+.toolbar>view {
+    display: inline-block;
+    width: 25%;
+    padding: 10rpx 0;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.toolbar image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+/* 展示栏 */
+
+.show {
+    padding: 30rpx;
+    background: #f4f4f4;
+}
+
+.show .subscript {
+    padding: 0 25rpx;
+    display: inline-block;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    background: white;
+    border-radius: 10rpx;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+
+.subscript image {
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+    position: relative;
+    top: -3rpx;
+}
+#addseries{
+    background: none;
+    color: dimgray
+}
+#addseries image{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+/* 列表框 */
+
+.listcase {
+    padding: 30rpx;
+}
+
+/* 列表 */
+
+.case {
+    position: relative;
+    border-top: 4rpx solid #f4f4f4;
+    padding-top: 20rpx;
+    margin-top: 20rpx;
+}
+
+.case:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.case>view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.case image {
+    width: 280rpx;
+    height: 200rpx;
+}
+
+.case .info {
+    width: 380rpx;
+    margin-left: 20rpx;
+    height: 200rpx;
+    overflow: hidden;
+}
+
+.info .detail {
+    color: dimgray;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+}
+
+.info .price {
+    position: absolute;
+    bottom: 0;
+    color: orangered;
+}
+
+.info .price text {
+    font-size: 28rpx;
+    color: dimgray;
+}
+
+.info .price .theprice {
+    text-decoration: line-through;
+}
+
+/* ----------------------品牌筛选页面------------------------ */
+/* 假头部 */
+.fakehead{
+    background: #f4f4f4;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-indent: -2em;
+    z-index: 99;
+}
+.fakehead image{
+    position: relative;
+    top: 20rpx;
+    height: 60rpx;
+    width: 60rpx;
+    transform: rotate(90deg);
+    vertical-align: middle;
+    float: left;
+}
+/* 主页面 */
+.brand{
+    background: #f4f4f4;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+/* 热门品牌 */
+.popular{
+    background: white;
+}
+.popular .casetitle{
+    padding: 20rpx 30rpx;
+    color: black;
+}
+.popular .popularcase{
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+.popularcase image{
+    width:80rpx;
+    height: 80rpx;
+}
+.popularcase .polularname{
+    font-size: 30rpx;
+    color: dimgray;
+}
+/* 品牌列表 */
+.listbox{
+
+}
+.listbox .brandlist_title{
+    padding: 0 30rpx;
+}
+.listbox .brandlist{
+    background: white;
+    padding: 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+}
+.listbox:last-of-type{
+    margin-bottom: 250rpx;
+}
+.listbox .brandlist image{
+   width: 60rpx;
+   height: 60rpx;
+   vertical-align: top;
+}
+.listbox .brandlist .brandname{
+   vertical-align: top;
+   margin-left: 20rpx;
+}
+/* 右侧字母导航栏 */
+.anchor{
+    width: 100rpx;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top:100rpx; 
+    z-index: 99;
+}
+.anchor>view{
+    text-align: center;
+    color: green;
+    font-size: 30rpx;
+    height: 40rpx;
+}
+/* 副品牌筛选 */
+.subbrand{
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.mainlogo{
+    padding: 30rpx;
+}
+.mainlogo image{
+    width: 80rpx;
+    height: 80rpx
+}
+.subbrand_title{
+    padding: 20rpx 30rpx;
+    background: #f4f4f4;
+    font-size: 28rpx;
+}
+.series{
+    border-top:4rpx solid #f4f4f4;
+    padding:30rpx; 
+}
+.series>view{
+    display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+    vertical-align: top;
+}
+.series .series_name{
+    margin-left: 30rpx;
+    width: 280rpx;
+    overflow: hidden;
+}
+.series>view image{
+    display: inline-block;
+    width: 80rpx;
+    height: 80rpx;
+}
+/* 切换样式 */
+.brandon{
+    display:block; 
+}
+.brandoff{
+    display: none;
+}
+.subbrandon{
+    display:block; 
+    transform: translateX(0);
+    transition-property:transform; 
+    transition-duration: 0.5s;
+}
+.subbrandoff{
+    transform: translateX(500rpx);
+    transition-property:transform; 
+    transition-duration: 0.5s;
+}
+.filteron{
+    display: block;
+}
+.filteroff{
+    display: none;
+}
+
+/* 高级筛选页面 */
+.filter{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    background: white;
+}
+.options:last-of-type{
+   margin-bottom: 250rpx;
+}
+/*车型*/
+.version{
+    background: white;
+    padding: 30rpx 0;
+    border-bottom:4rpx solid #f4f4f4; 
+}
+.version .casetitle{
+    padding: 20rpx 30rpx;
+    color: black;
+}
+.version .versioncase{
+    display: inline-block;
+    width: 33.3%;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 50rpx;
+}
+.versioncase image{
+    width:150rpx;
+    height: 60rpx;
+}
+.versioncase .versionname{
+    font-size: 30rpx;
+    color: dimgray;
+}
+/* 车牌选项 */
+.options{
+    background: white;
+    padding: 30rpx 0;
+    border-bottom:4rpx solid #f4f4f4; 
+}
+.options .casetitle{
+    padding: 20rpx 30rpx;
+    color: black;
+}
+.options .optionscase{
+    display: inline-block;
+    width: 33.3%;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 50rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.optionscase image{
+    width:150rpx;
+    height: 60rpx;
+}
+.optionscase .optionsname{
+    font-size: 30rpx;
+    color: dimgray;
+    border: 2rpx solid dimgray;
+    box-shadow:0rpx 0rpx 10rpx #999 inset;
+    border-radius: 5rpx; 
+}
+/* 控件 */
+.selector{
+    background: white;
+    padding: 30rpx 0;
+    border-bottom:4rpx solid #f4f4f4; 
+}
+.selector .casetitle{
+    padding: 20rpx 30rpx;
+    color: black;
+}
+
+.selector slider{
+    position: relative;
+}
+.selector slider:last-child{
+    transform: translateY(-55rpx);
+}
+.parameter{
+    transform: translateY(-55rpx);
+}
+.parameter>view{
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+/*控件2*/
+.parameter2{
+    transform: translateY(-55rpx);
+}
+.parameter2>view{
+    display: inline-block;
+    width: 16.66%;
+    text-align: center;
+}
+/* 控件3 */
+.parameter3{
+    transform: translateY(-55rpx);
+}
+.parameter3>view{
+    display: inline-block;
+    width: 16.66%;
+    text-align: center;
+}
+/*颜色*/
+.optionsname .colorball{
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    border:1rpx solid #454545;
+}
+
+

@@ -1,0 +1,28 @@
+{
+    "pages": [
+        "pages/filter/index",
+        "pages/logs/logs",
+        "pages/goods/parameter/index",
+        "pages/goods/report/index",
+        "pages/goods/tobargin/index",
+        "pages/home/index",
+        "pages/index/index",
+        "pages/my/appointment/index",
+        "pages/my/bargin/index",
+        "pages/my/collect/index",
+        "pages/my/concern/index",
+        "pages/my/cut/index",
+        "pages/my/main/index",
+        "pages/my/record/index",
+        "pages/news/index",
+        "pages/sell/estimate/index",
+        "pages/sell/form/index",
+        "pages/sell/procedure/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    }
+}
