@@ -12,17 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var context = wx.createCanvasContext('firstCanvas')
-
-      context.setStrokeStyle("#dfdfdf")
-    context.setLineWidth(1)
-    context.moveTo(0,10);
-    context.lineTo(45,10)
-    context.lineTo(55,0);
-    context.lineTo(65,10);
-    context.lineTo(375,10);
-    context.stroke()
-    context.draw()
+  
   },
 
   /**

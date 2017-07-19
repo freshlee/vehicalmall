@@ -1,4 +1,116 @@
 <!--index.wxml-->
-<text>index.wxml</text>
 <!-- 头部BANNER -->
-<view class="banner"> <image src="../../../image/detail_banner.png"></image> </view>
+<view class="banner">
+    <image src="../../../image/detail_banner.png"></image>
+    <view class="info">
+        <view class="title">
+            长城C50 2012款 1.5T 手动尊贵型
+        </view>
+        <view class="price">
+            <text class="standard">车主报价</text> 3.80万 <text class="tax">新车含税0.96万</text>
+        </view>
+    </view>
+</view>
+<!-- 服务保障 -->
+<view class="server">
+    <view class="title">服务保障 <text>(服务费3500元，最低服务费)</text> </view>
+    <view class="logo_table">
+        <view class="logo_cell" wx:for="{{4}}">
+            <view class="pic">
+                <image src="../../../image/tick.png"></image>
+            </view>
+            <view class="logo_name">售后保障</view>
+        </view>
+    </view>
+    <view class="branch">
+        <canvas style="width: 750rpx; height: 30rpx;" canvas-id="firstCanvas"></canvas>
+        <view class="branchbox">
+            <view class="branchlist" wx:for="{{3}}">
+                <view class="head">2.80万元</view>
+                <view class="footer"> 最高赔付额</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="car_info">
+    <view class="para">
+        <view class="parabox">
+            <view class="para_case" wx:for="{{6}}">
+                <view class="head">9.8万公里</view>
+                <view class="footer">表显里程</view>
+            </view>
+        </view>
+    </view>
+    <view class="featurebox">
+        <view class="feature" wx:for="{{5}}">
+            <view class="head">
+                <image src="../../../image/feature.png"></image>
+            </view>
+            <view class="footer">倒车影像</view>
+        </view>
+    </view>
+    <view class="more">
+        查看更多参数配置
+    </view>
+</view>
+<!-- 车主的话 -->
+<view class="desc">
+    <view class="seller">
+        <view class="pic">
+            <image src="../../../image/protrait.png"></image>
+        </view>
+        <view class="info">
+            <view class="top">赵先生</view>
+            <view class="bottom">
+                <view class="attr">个体</view>
+                <view class="location">南海</view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view><text>“</text>这车已经用了四年多测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试<text>”</text> </view>
+        <view class="date">
+            <view>2018年8月年检到期</view>
+            <view>2017年8月交强险到期</view>
+            <view>2017年8月商业险到期</view>
+            <view>0次过户记录</view>
+        </view>
+    </view>
+</view>
+<!-- 检测报告 -->
+<view style="background:white">
+<view class="desc">
+    <view class="seller">
+        <view class="pic">
+            <image src="../../../image/quality.png"></image>
+        </view>
+        <view class="info">
+            <view class="top">张全蛋</view>
+            <view class="bottom">
+                <view class="attr">富土康三号流水线王牌质检员</view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view style="line-height: 45rpx">这车已经用了四年多测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试
+        <view class="warm">*以上为评估师验车时的车况，交易前会进行深度复检</view>
+        </view>
+    </view>
+    <!-- 参数列 -->
+    <view class="paralist">
+        <view> <image class="logo" src="../../../image/accident.png"/> <text>事故检测</text>  <text>28项</text> </view>
+        <view> <image class="logo" src="../../../image/safty.png"/><text>安全检测</text> <text>18项</text></view>
+        <view> <image class="logo" src="../../../image/driver.png"/><text>驾驶检测</text> <text>17项</text></view>
+        <view> <image class="logo" src="../../../image/decoration.png"/><text>外观检测</text> <text>114项</text></view>
+    </view>
+</view>
+    <view class="more" style="border-top:2rpx solid #dfdfdf">查看详细检测报告</view>
+</view>
+<!-- 保障 -->
+<view class="surance">
+    <view wx:for="{{4}}">
+        <view class="head"> <image src="../../../image/difference.png"/> </view>
+        <view class="footer">不赚差价</view>
+    </view>
+</view>
+<view id="panel">预约看车</view>

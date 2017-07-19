@@ -1,1 +1,256 @@
-/* index.wxss */
+page{
+    background: #f4f4f4;
+}
+page>view{
+    margin-bottom:20rpx; 
+}
+/* 头部BANNER */
+.banner{
+    background: white;
+}
+.banner image{
+    width: 750rpx;
+    height: 357rpx;
+}
+.info{
+    padding-left:30rpx;
+    box-sizing: border-box; 
+    padding-bottom: 32rpx;
+}
+.info .title{
+    height: 100rpx;
+    line-height: 100rpx;
+    font-weight: bold;
+}
+.price{
+    color: orangered;
+}
+.price .standard{
+    font-size: 25rpx;
+    color: dimgray;
+}
+.price .tax{
+    text-decoration: line-through;
+    color: dimgray;
+    font-size: 25rpx;
+}
+/* 服务保障 */
+.server{
+    background: white;
+}
+.server .title{
+    padding: 0 30rpx;
+    line-height: 90rpx;
+    height: 90rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.server .title text{
+    font-size: 25rpx;
+    color: dimgrey;
+    font-weight: normal;
+}
+.logo_table{
+    padding-bottom: 37rpx;
+    padding: 0 30rpx;
+}
+.logo_cell{
+width: 25%;
+display: inline-block;
+}
+.logo_cell>view{
+text-align: center;
+}
+.logo_cell image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.logo_name{
+    margin-top: 20rpx;
+    font-size: 30rpx;
+}
+.branchbox{
+    padding-bottom: 20rpx;
+}
+.branchbox>view{
+    display: inline-block;
+    width: 33.3%;
+}
+.branchlist>view{
+    text-align: center;
+}
+.branchlist .head{
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+.branchlist  .footer{
+    font-size: 25rpx;
+}
+/*参数*/
+.car_info{
+    background: white;
+}
+.para{
+    padding:20rpx 30rpx;
+}
+.parabox{
+    border-bottom: 2rpx solid #dfdfdf;
+}
+.parabox>view{
+    display: inline-block;
+    width: 33.33%;
+    margin-bottom: 46rpx;
+}
+.para_case .head{
+    line-height: 61rpx;
+    height: 61rpx;
+    font-size: 35rpx;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+} 
+.para_case .footer{
+    font-size: 25rpx; 
+    text-align: center;
+    color: dimgrey;
+}
+.featurebox{
+    border-bottom: 2rpx solid #dfdfdf;
+    padding-bottom: 40rpx; 
+}
+.feature{
+    display: inline-block;
+    width: 20%;
+}
+.feature image{
+    width: 87rpx;
+    height: 87rpx;
+}
+.feature .head{
+    text-align: center;
+ 
+}
+.feature .footer{
+    text-align: center;
+    font-size: 28rpx;
+}
+.more{
+    height: 85rpx;
+    line-height: 85rpx;
+    text-align: center;
+    font-size: 30rpx;
+}
+/*卖家描述*/
+.desc{
+    padding: 37rpx 30rpx 0;
+    background-color: white;
+}
+.seller>view{
+    display: inline-block;
+    vertical-align: middle;
+}
+.seller .pic image{
+   width: 100rpx;
+   height: 100rpx;
+   vertical-align: middle;
+}
+.desc .info{
+    margin-left: 20rpx;
+    padding: 0;
+}
+.info .top{
+    font-size: 30rpx;
+    color: black;
+}
+.info .bottom>view{
+    display: inline-block;
+    vertical-align: middle;
+    color: dimgrey;
+    font-size: 25rpx;
+    margin-right: 10rpx;
+}
+.desc .content{
+    font-size: 25rpx;
+    line-height: 45rpx;
+    padding: 20rpx 20rpx 0;
+    vertical-align: bottom;
+}
+.desc .content text{
+    font-size: 100rpx;
+    vertical-align: bottom;
+    display: inline-block;
+    height: 30rpx;
+}
+.desc .content>view:first-of-type{
+    border-bottom: 2rpx solid #dfdfdf;
+}
+.desc .content>view:first-of-type .warm{
+    height: 90rpx;
+    line-height: 90rpx;
+    color: dimgrey;
+}
+.date{
+    padding: 10rpx 0rpx;
+}
+.date>view{
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    line-height: 50rpx;
+    height: 50rpx;
+}
+.paralist{
+    padding: 0 20rpx;
+}
+.paralist>view{
+    border-bottom: 2rpx solid #dfdfdf;
+    padding: 20rpx 0;
+}
+.paralist>view:last-of-type{
+    border: none;
+}
+.paralist .logo{
+    height: 80rpx;
+    width: 80rpx;
+    vertical-align: top;
+}
+.paralist>view text{
+    height: 80rpx;
+    line-height: 80rpx;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+/*保障*/
+.surance{
+    background: white;
+    padding: 38rpx;
+}
+.surance>view{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+.surance .head image{
+    width: 80rpx;
+    height: 80rpx;
+}
+.surance .footer{
+    font-size: 30rpx;
+    font-weight: bold;
+}
+#panel{
+    margin: 0;
+    height: 97rpx;
+    position: fixed;
+    width: 100%;
+    background: orangered;
+    bottom: 0;
+    left: 0;
+    line-height: 97rpx;
+    text-align: center;
+    color: white;
+}
