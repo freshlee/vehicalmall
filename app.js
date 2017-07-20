@@ -61,6 +61,7 @@ App({
 
   globalData: {
     userInfo: 1111,
-    serverName: "http://192.168.1.213/api/index.php?c=eweivideo&uniacid=" + 499 ,
+    serverName: "http://192.168.1.213/API/index.php?c=wxlcar&acid=" + 2 ,
+    acid:2,
   }
 })

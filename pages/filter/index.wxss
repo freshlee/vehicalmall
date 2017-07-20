@@ -20,7 +20,8 @@
 /* 展示栏 */
 
 .show {
-    padding: 30rpx;
+    padding-top: 10rpx;
+    padding-bottom: 30rpx;
     background: #f4f4f4;
 }
 
@@ -34,6 +35,7 @@
     border-radius: 10rpx;
     vertical-align: middle;
     margin-left: 20rpx;
+    margin-top: 20rpx;
 }
 
 .subscript image {
@@ -265,6 +267,16 @@
 .filteroff{
     display: none;
 }
+.choseoption{
+    border: 2rpx solid green !important;
+    box-shadow:0rpx 0rpx 10rpx greenyellow inset !important;
+}
+.pricefilteron{
+    display: block
+}
+.pricefilteroff{
+    display: none;
+}
 
 /* 高级筛选页面 */
 .filter{
@@ -333,6 +345,8 @@
     border: 2rpx solid dimgray;
     box-shadow:0rpx 0rpx 10rpx #999 inset;
     border-radius: 5rpx; 
+    height: 60rpx;
+    overflow: hidden;
 }
 /* 控件 */
 .selector{
@@ -386,5 +400,18 @@
     height: 40rpx;
     border:1rpx solid #454545;
 }
+
+/* 价格选项 */
+.pricefilter{
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    width:100%;
+    top:80rpx;
+    left: 0;
+}
+.pricefilter .pricerange{
+    
+}
+
 
 

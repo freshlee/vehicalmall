@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<text>index.wxml</text>
+<!-- 头部BANNER -->
+<view class="banner"> <image src="../../../image/detail_banner.png"></image> </view>

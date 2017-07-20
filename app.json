@@ -1,11 +1,12 @@
 {
     "pages": [
+        "pages/goods/detail/index",
         "pages/filter/index",
+        "pages/home/index",
         "pages/logs/logs",
         "pages/goods/parameter/index",
         "pages/goods/report/index",
         "pages/goods/tobargin/index",
-        "pages/home/index",
         "pages/index/index",
         "pages/my/appointment/index",
         "pages/my/bargin/index",
@@ -22,7 +23,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
+        "navigationBarTitleText": "买车网测试",
         "navigationBarTextStyle": "black"
     }
 }
