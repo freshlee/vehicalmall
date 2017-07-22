@@ -1,2 +1,21 @@
 <!--index.wxml-->
-<text>index.wxml</text>
+<view class="header">
+    <view> <text class="tag">车辆名称：</text>现代名图 2014款 1.8L 自动智能型</view>
+    <view> <text class="tag">评估师：</text>梁宪江</view>
+    <view> <text class="tag">检测时间：</text>2017-7-24</view>
+</view>
+
+<view class="title"> <view class="line"></view> 事故排查 <image src="../../../image/arrowon.png"></image> </view>
+<view class="box">
+<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+</view>
+
+<view class="title"> <view class="line"></view> 事故排查</view>
+<view class="box">
+<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+</view>
+
+<view class="title"> <view class="line"></view> 事故排查</view>
+<view class="box">
+<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+</view>

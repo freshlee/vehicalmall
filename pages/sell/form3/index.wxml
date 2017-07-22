@@ -1,0 +1,28 @@
+<view class="progame_bar">
+    <view class="bar"> <canvas canvas-id="bar" style="height:60rpx;width:750rpx;transform: scale({{times}});transform-origin:0 50%;" /> </view>
+    <view class="name">
+        <view class="classname">填写手机号</view>
+        <view class="classname">
+            <view>提交预约信息</view>
+            <view>助你更快卖车</view>
+        </view>
+        <view class="classname">制定后续计划</view>
+    </view>
+</view>
+<view class="options" wx:for="{{superfilter}}">
+    <checkbox-group bindchange="checkboxChange" data-index="{{index}}" name="{{item.name}}">
+        <view class="casetitle">{{item.chinese}}</view>
+        <!-- 单个热门品牌 -->
+        <view class="optionscase" wx:for="{{item.list}}" wx:key="subkey">
+            <view class="optionsname {{item.checked?'choseoption':''}}">
+                <label class="checkbox">
+                {{item.name}}<checkbox value="{{item.id}}"  style="display:none" checked="{{item.checked?true:false}}"/>
+                </label>
+            </view>
+        </view>
+        <!-- 单个热门品牌 -->
+    </checkbox-group>
+</view>
+
+
+<button class="submit" style="color:white;background:rgba(250, 128, 10,1);border-radius:0;position:fixed;width:100%;bottom:0">我要提交</button>

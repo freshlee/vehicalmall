@@ -1,1 +1,65 @@
 /* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.header{
+    padding: 20rpx 0;    
+    background: white;
+}
+.header>view{
+    height: 43rpx;
+    line-height: 43rpx;
+    font-size: 25rpx;
+}
+.header>view .tag{
+    display: inline-block;
+    width: 150rpx;
+    text-align: right;
+}
+/* 报告盒子 */
+.title{
+    height: 103rpx;
+    line-height: 103rpx;
+}
+.line{
+    border-left: 4rpx solid rgba(250, 128, 10,1);
+    display: inline-block;
+    height: 30rpx;
+    margin-left: 30rpx;
+}
+.box{
+    background: white;
+}
+.box .list{
+    padding: 0 30rpx;
+    height: 87rpx;
+    line-height: 87rpx;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #adadad;
+}
+.box .list:last-of-type{
+    border: none;
+}
+.box .list image{
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: 25rpx;
+    float: right;
+}
+.title image{
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: 30rpx;
+    float: right;
+    margin-right:30rpx; 
+}
+/* 样式切换 */
+.arrowon{
+
+}
+.arrowoff{
+
+}

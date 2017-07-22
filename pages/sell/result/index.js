@@ -8,26 +8,11 @@ Page({
   
   },
 
- statuschange:function(e){
-   var index=e.currentTarget.dataset.index;
-   var expendnow=this.data.expend;
-   console.log(expendnow[index]);
-   if (expendnow[index]==0){
-       expendnow[index] = 1;
-       console.log(1)
-   }
-   else{
-       expendnow[index] = 0;
-       console.log()
-   }
-   this.setData({
-       expend:expendnow,
-   })
- },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-   this.setData({
-       expend:[],
-   })
+  
   },
 
   /**

@@ -1,0 +1,86 @@
+/* index.wxss */
+page{
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.header{
+    height: 160rpx;
+    line-height: 160rpx;
+    text-align: center;
+}
+.go {
+    background: rgba(250, 128, 10,1);
+    color: white;
+    border-radius: 5rpx;
+}
+.location{
+    height: 108rpx;
+    line-height: 108rpx;
+    font-size: 35rpx;
+    border-bottom: 2rpx solid #dfdfdf;
+}
+.location image{
+    width: 35rpx;
+    height: 35rpx;
+    position: relative;
+    top: 5rpx;
+}
+.location text{
+     color: #adadad;
+     margin-left: 10rpx;
+}
+/* 注意事项 */
+.cases{
+    border-bottom: 2rpx solid #dfdfdf;
+    padding-bottom: 10rpx;
+}
+.cases .title{
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 35rpx;
+    color: #adadad;
+}
+.cases .title text{
+    display: inline-block;
+    margin-left: 10rpx;
+}
+.cases .title image{
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: 5rpx;
+}
+.cases .list{
+    text-indent: 1em;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+.cases .index{
+    text-indent: 15rpx;
+    display: inline-block;
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background: rgba(250, 128, 10,1);
+    color: white;
+}
+/* 提示 */
+.warming>view{
+    height: 55rpx;
+    line-height: 55rpx;
+    font-size: 30rpx;
+    color: #adadad;
+}
+.warming>view:first-of-type{
+    color: #454545;
+    margin-top: 20rpx;
+}
+.warming .num{
+    color: rgba(250, 128, 10,1);
+}
+
+
+
+

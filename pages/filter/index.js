@@ -33,14 +33,19 @@ Page({
         var price = this.data.price;
         for(var key in price){
         var proof = price[key].id;
-        for (var i in value) {
-            if (value[i] == proof) {
-                price[key].checked = true;
-                break;
+        if(value.length!=0){
+            for (var i in value) {
+                if (value[i] == proof) {
+                    price[key].checked = true;
+                    break;
+                }
+                else {
+                    price[key].checked = false;
+                }
             }
-            else {
-                price[key].checked = false;
-            }
+        }
+        else{
+            price[key].checked = false;
         }
         }
         this.setData({
@@ -89,18 +94,23 @@ Page({
         for (var key in total[index].list) {
             console.log("begin");
             var proof = total[index].list[key].id;
-            for (var i in value) {
-                if (value[i] == proof) {
-                    // if (total[index].list[key].checked == false){
-                    //     var storage = total[index].list[key].name;
-                    //     totop.push(storage);
-                    // }
-                    total[index].list[key].checked = true;
-                    break;
+            if(value.length!=0){
+                for (var i in value) {
+                    if (value[i] == proof) {
+                        // if (total[index].list[key].checked == false){
+                        //     var storage = total[index].list[key].name;
+                        //     totop.push(storage);
+                        // }
+                        total[index].list[key].checked = true;
+                        break;
+                    }
+                    else {
+                        total[index].list[key].checked = false;
+                    }
                 }
-                else {
-                    total[index].list[key].checked = false;
-                }
+            }
+            else{
+                        total[index].list[key].checked = false;
             }
         }
         this.setData({

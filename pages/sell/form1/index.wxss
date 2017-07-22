@@ -1,14 +1,25 @@
-page{
+/* index.wxss */
+.progame_bar{
     background: #f4f4f4;
+    padding: 40rpx 0;
+}
+.progame_bar .name{
+    margin-top: 15rpx;
+}
+.progame_bar .name>view{
+    display: inline-block;
+    width: 33.3%;
+    vertical-align: top;
+    font-size: 25rpx;
+    text-align: center;
 }
 .case{
-    margin-top: 20rpx;
     background: white;
     padding: 0 30rpx; 
 }
 .case .list{
-  height: 110rpx;
-  line-height: 110rpx;
+   height: 110rpx;
+   line-height: 110rpx;
    border-bottom: 2rpx solid #f4f4f4;
    font-size: 30rpx;
 }
@@ -44,42 +55,6 @@ page{
     display: inline-block;
     height: 110rpx;
     line-height: 110rpx;
-}
-.go{
-    margin-top: 200rpx;
-    background: rgba(250, 128, 10,1);
-    color: white;
-    border-radius: 0;
-    width: 90%;
-}
-/* 切换样式 */
-.brandon{
-    display:block; 
-}
-.brandoff{
-    display: none;
-}
-.subbrandon{
-    display:block; 
-    transform: translateX(0);
-    transition-property:transform; 
-    transition-duration: 0.5s;
-}
-.subbrandoff{
-    transform: translateX(500rpx);
-    transition-property:transform; 
-    transition-duration: 0.5s;
-}
-.timeon{
-    display:block; 
-    transform: translateX(0);
-    transition-property:transform; 
-    transition-duration: 0.5s;
-}
-.timeoff{
-    transform: translateX(500rpx);
-    transition-property:transform; 
-    transition-duration: 0.5s;
 }
 /* ----------------------品牌筛选页面------------------------ */
 /* 假头部 */
@@ -210,134 +185,21 @@ page{
     width: 80rpx;
     height: 80rpx;
 }
-/* 年份筛选 */
-.time{
-    background: white;
-    position: fixed;
-    top: 0;
-    right: 0;
+/* 切换样式 */
+.brandon{
+    display:block; 
 }
-.mainlogo{
-    padding: 30rpx;
+.brandoff{
+    display: none;
 }
-.mainlogo image{
-    width: 80rpx;
-    height: 80rpx
+.subbrandon{
+    display:block; 
+    transform: translateX(0);
+    transition-property:transform; 
+    transition-duration: 0.5s;
 }
-.time_title{
-    padding: 20rpx 30rpx;
-    background: #f4f4f4;
-    font-size: 28rpx;
-}
-.series{
-    border-top:4rpx solid #f4f4f4;
-    padding:30rpx; 
-}
-.series>view{
-    display: inline-block;
-    height: 80rpx;
-    line-height: 80rpx;
-    vertical-align: top;
-}
-.series .series_name{
-    margin-left: 30rpx;
-    width: 280rpx;
-    overflow: hidden;
-}
-.series>view image{
-    display: inline-block;
-    width: 80rpx;
-    height: 80rpx;
-}
-/*状态切换*/
-.searchon{
-    left: 0;
-     
-}
-.searchoff{
-    left: 750rpx;
-}
-.cityon{
-    left: 0;
-     
-}
-.cityoff{
-    left: 750rpx;
-}
-/*城市分页*/
-.citypage{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #f4f4f4;
-    transition-property:left;
-    transition-duration: 0.5s; 
-}
-.citycase{
-    padding: 40rpx 20rpx;
-    font-size: 25rpx;
-    text-align: left;
-    border-bottom: 2rpx solid #f4f4f4;
-    background: white;
-}
-.citynow{
-    padding-top:75rpx;
-}
-.citynow .title{
-    padding: 20rpx 20rpx;
-     font-size: 25rpx;
-     text-align: left;
-    border: 2rpx solid #f4f4f4;
-    background: white;
-}
-.citylist{
-    margin: 20rpx 0;
-}
-.citylist .title{
-    padding: 20rpx 20rpx;
-     font-size: 25rpx;
-     color:grey;
-     text-align: left;
-    border: 2rpx solid #f4f4f4;
-    background: white;
-}
-/* 右侧字母导航栏 */
-.anchor{
-    width: 100rpx;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-top:100rpx; 
-    z-index: 99;
-}
-.anchor>view{
-    text-align: center;
-    color: green;
-    font-size: 30rpx;
-    height: 40rpx;
-}
-/* 假头部 */
-.header{
-    background: #f4f4f4;
-    padding: 10rpx;
-    position: fixed;
-    width: 100%;
-}
-.header>view{
-    display: inline-block;
-    height: 60rpx;
-    line-height: 60rpx;
-    vertical-align: top;
-}
-.header .input{
-    height: 60rpx;
-    display: inline-block;
-    vertical-align: top;
-    width: 620rpx;
-    text-align: center;
-}
-.header .back image{
-    height: 50rpx;
-    width: 50rpx;
-    transform: rotate(90deg) translateX(5rpx);
+.subbrandoff{
+    transform: translateX(500rpx);
+    transition-property:transform; 
+    transition-duration: 0.5s;
 }

@@ -1,0 +1,41 @@
+<view class="progame_bar">
+    <view class="bar"> <canvas canvas-id="bar" style="height:60rpx;width:750rpx;transform: scale({{times}});transform-origin:0 50%;" /> </view>
+    <view class="name">
+        <view class="classname">填写手机号</view>
+        <view class="classname">
+            <view>提交预约信息</view>
+            <view>助你更快卖车</view>
+        </view>
+        <view class="classname">制定后续计划</view>
+    </view>
+</view>
+<view class="options" wx:for="{{superfilter}}">
+    <checkbox-group bindchange="checkboxChange" data-index="{{index}}" name="{{item.name}}">
+        <view class="casetitle">{{item.chinese}}</view>
+        <!-- 单个热门品牌 -->
+        <view class="optionscase" wx:for="{{item.list}}" wx:key="subkey">
+            <view class="optionsname {{item.checked?'choseoption':''}}">
+                <label class="checkbox">
+                {{item.name}}<checkbox value="{{item.id}}"  style="display:none" checked="{{item.checked?true:false}}"/>
+                </label>
+            </view>
+        </view>
+        <!-- 单个热门品牌 -->
+    </checkbox-group>
+</view>
+
+<view class="selector" wx:for="{{poly}}" wx:key="mainkey" wx:for-index="ind" wx:for-item="it">
+    <view class="casetitle">{{it.name}}:{{it.min}}-{{it.max}}</view>
+    <view class="selectbox">
+        <!-- 最大值 -->
+        <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.max}}" data-index="{{ind}}" backgroundColor="#f4f4f4" activeColor="rgba(250, 128, 10,1)" bindchange="max" name="{{keyname}}['max']" />
+        <!-- 最小值 -->
+        <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.min}}" data-index="{{ind}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="min" name="{{keyname}}['min']" />
+    </view>
+    <view class="parameter">
+        <view wx:for="{{5}}" style="width:16.66%">{{index*10}}</view>
+        <view  style="width:16.66%">不限</view>
+    </view>
+</view>
+
+<button class="submit" style="color:white;background:rgba(250, 128, 10,1);border-radius:0;position:fixed;width:100%;bottom:0">我要提交</button>

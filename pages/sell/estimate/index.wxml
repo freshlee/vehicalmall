@@ -1,2 +1,138 @@
 <!--index.wxml-->
-<text>index.wxml</text>
+<view class="case">
+    <view class="list" bindtap="city">
+        {{cityname}}
+        <view class="rightside">
+            <image src="../../../image/arrow.png"></image>
+        </view>
+    </view>
+    <view class="list" bindtap="brand">
+        车系
+        <view class="rightside">
+            <image src="../../../image/arrow.png"></image>
+        </view>
+    </view>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="list">
+            {{date?date:'上牌时间'}}
+            <view class="rightside">
+                <image src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+    </picker>
+    <view class="list">
+        请输入行驶里程
+        <view class="rightside"> <input placeholder="请填写里程数" style="z-index:0;position:relative" :/><text>万公里</text> </view>
+    </view>
+    <view class="list">
+        接收手机号
+        <view class="rightside"> <input placeholder="11位手机号" style="z-index:0;position:relative" :/> </view>
+    </view>
+    <picker mode="selector" bindchange="bindrChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{tips}}">
+        <view class="list">
+            {{purpose?purpose:'卖车意向'}}
+            <view class="rightside">
+                <image src="../../../image/arrow.png"></image>
+            </view>
+        </view>
+    </picker>
+</view>
+
+<button class="go">开始估价</button>
+
+
+<!-- 品牌筛选主页面 -->
+<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px">
+    <view class="fakehead">
+        <image bindtap="brand" src="../../../image/arrow.png"></image> 品牌选择</view>
+    <scroll-view bindscroll="subbrandclose" scroll-with-animation scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
+        <!-- 最热品牌 -->
+        <view class="popular">
+            <view class="casetitle">热门品牌</view>
+            <!-- 单个热门品牌 -->
+            <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
+                <view class="pic">
+                    <image src="../../../image/Benz.png"></image>
+                </view>
+                <view class="polularname">奔驰</view>
+            </view>
+            <!-- 单个热门品牌 -->
+        </view>
+
+        <!-- 品牌列表 -->
+        <view class="listbox" wx:for="{{listbox}}" id="{{item.name}}">
+            <view class="brandlist_title">{{item.name}}</view>
+            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.series}}" data-cateid="{{item.id}}" data-catename="{{item.catename}}">
+                <image class="brandlogo" src="../../../image/Benz.png"></image>
+                <text class="brandname">{{item.catename}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 右侧导航栏 -->
+    <view class="anchor">
+        <view data-index="all" bindtap="toscroll">#</view>
+        <view wx:for="{{listbox}}" data-index="{{item.name}}" bindtap="toscroll">{{item.name}}</view>
+
+    </view>
+
+    <!-- 副品牌筛选页面 -->
+    <view class="subbrand {{subbrandstatus&&serieslist?'subbrandon':'subbrandoff'}}" style="height:{{myheight}}px;width:500rpx;">
+        <view class="mainlogo">
+            {{catename}}
+        </view>
+        <view class="subbrand_title">选择车系
+        </view>
+        <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-list="{{item.list}}" data-id="{{item.id}}" data-name="{{item.name}}">
+            <view class="series_pic">
+                <image src="../../../image/jeep.jpg"></image>
+            </view>
+            <view class="series_name">{{item.name}}</view>
+        </view>
+    </view>
+    <!-- 年份牌筛选页面 -->
+    <view class="time {{timestatus&&seriesid?'timeon':'timeoff'}}" style="height:{{myheight}}px;width:500rpx;">
+        <view class="mainlogo">
+            {{catename}}
+        </view>
+        <view class="time_title">年份
+        </view>
+        <view class="series" wx:for="{{timelist}}" bindtap="chosetime" data-list="{{item.list}}" data-id="{{item.id}}" data-name="{{item.name}}">
+            <view class="series_pic">
+                <image src="../../../image/jeep.jpg"></image>
+            </view>
+            <view class="series_name">{{item.name}}</view>
+        </view>
+    </view>
+</view>
+<!-- 城市页面 -->
+<view class="citypage {{citystatus?'cityon':'cityoff'}}" style="height:{{myheight}}px">
+<scroll-view scroll-with-animation scroll-y style="height:{{myheight-60}}px" scroll-into-view="{{view}}">
+<!-- 假头部 -->
+    <view class="header">
+        <view class="back" bindtap="city">
+            <image src="../../../image/arrow.png"></image>
+        </view>
+        <view class="input">
+            选择城市 </view>
+    </view>
+    <view class="citynow">
+        <view class="title">当前城市</view>
+    <view class="citycase">{{cityname}}</view>
+    </view>
+    <view class="citylist" id="all">
+        <view class="title">全</view>
+        <view class="citycase">全部城市</view>
+    </view>
+    <!-- 城市列表 -->
+    <view class="citylist" wx:for="{{listbox}}" id="{{item.name}}">
+        <view class="title">{{item.name}}</view>
+        <view class="citycase" wx:for="{{item.lists}}" bindtap="chosecity" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</view>
+    </view>
+</scroll-view>
+    <!-- 右侧导航栏 -->
+    <view class="anchor">
+        <view data-index="all" bindtap="toscroll">#</view>
+        <view wx:for="{{listbox}}" data-index="{{item.name}}" bindtap="toscroll">{{item.name}}</view>
+
+    </view>
+</view>

@@ -1,1 +1,132 @@
 /* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.header{
+    background: #f4f4f4;
+}
+.header image{
+    width: 750rpx;
+    height: 300rpx;
+}
+/* 按钮区 */
+.num{
+    padding: 35rpx 30rpx;
+    background: white;
+}
+.num .total{
+    text-align: center;
+    font-size: 40rpx !important;
+    color: orangered;
+    line-height: 50rpx;
+    height: 50rpx;
+}
+.num .desc{
+    text-align: center;
+    color: dimgray;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+}
+.num input{
+    height: 72rpx;
+    border: 1rpx solid #dfdfdf;
+    border-radius: 5rpx;
+    font-size: 28rpx;
+    text-indent: 1em;
+}
+.num button::after{
+    border: none;
+}
+.num .mainbutton{
+    margin-top: 30rpx;
+    background: orangered;
+    border: none;
+    color: white;
+    border-radius: 5rpx;
+}
+.num .free,.num .estimate{
+    width: 47.5%;
+    margin: 30rpx 0 0;
+    display: inline-block;
+    background: #dfdfdf;
+    border: none!important;
+    border-radius: 5rpx;
+}
+.num .estimate{
+    margin-left: 30rpx;
+}
+/* 卖车流程 */
+.procedure{
+    padding: 0 30rpx;
+    background: white;
+    margin-top:20rpx; 
+}
+.procedure .title{
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #dfdfdf;
+}
+.procedure .progamme{
+    padding: 30rpx 0;
+}
+.procedure image{
+    width: 100%;
+    height: 151rpx;
+}
+/* 卖车指南 */
+.indication{
+    padding: 0 30rpx;
+    background: white;
+    margin-top:20rpx; 
+}
+.indication .title{
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #dfdfdf;
+}
+.indication .interact{
+    padding: 30rpx 0 0;
+}
+.indication .question .content{
+    color: #454545;
+    display: inline-block;
+    width: 600rpx;
+}
+.indication .question{
+    font-size: 35rpx;
+    line-height: 50rpx;
+    padding-bottom: 30rpx;
+    position: relative;
+}
+.indication .question .expend{
+    position: absolute;
+    right: 0;
+    bottom: 30rpx;
+    display: inline-block;
+}
+.indication .question text{
+    color: orangered;
+    margin-right: 10rpx;
+}
+.indication .answer{
+    font-size: 30rpx;
+    color: dimgray;
+    letter-spacing: 3rpx;
+    border-bottom: 2rpx solid #dfdfdf;
+    padding-bottom: 30rpx;
+}
+.arrow{
+    width: 30rpx;
+    height: 30rpx;
+}
+.arrowon{
+    transform: rotate(0);
+}
+.arrowoff{
+    transform: rotate(180deg);
+}
+.conpressed{
+    display: none;
+}
+.expend{
+    display: block;
+}

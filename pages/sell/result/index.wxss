@@ -1,0 +1,126 @@
+/* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.header{
+    padding: 30rpx;
+    background: white;
+   margin-top: 20rpx;
+}
+.header .name{
+    font-size: 35rpx;
+    margin-bottom: 30rpx;   
+}
+.header .info{
+    font-size: 30rpx;
+}
+.header .info text{
+    display: inline-block;
+    margin-right:10rpx;
+    color: #adadad; 
+}
+/* 估算价钱 */
+.result{
+    padding: 60rpx 0 20rpx;
+}
+.result>view{
+    text-align: center;
+}
+.result>view:first-of-type{
+    text-align: center;
+    font-size: 30rpx;
+}
+.result .price{
+    color: rgba(250, 128, 10, 1);
+    font-size: 80rpx;
+    margin-top: 15rpx;
+}
+/* 号码盒子 */
+.numbox{
+   margin-top: 20rpx;
+   background: rgba(250, 171, 109, 1);
+   color: white;
+   padding: 0 30rpx;
+   box-sizing: border-box;
+}
+.numbox .title{
+    height: 110rpx;
+    line-height: 110rpx;
+    text-align: center;
+   color: white;
+    font-size: 50rpx;
+}
+.panel{
+    padding: 20rpx 0;
+}
+.numbox .input,.numbox .button{
+    display: inline-block;
+    vertical-align: top;
+}
+.numbox .button{
+    width: 200rpx !important;
+    height: 70rpx !important;
+    line-height: 70rpx;
+    color: white;
+    background:rgba(250, 108, 10, 1); 
+    text-align: center;
+    border-radius: 5rpx;
+    font-size: 35rpx;
+}
+.numbox .input{
+    background: white;
+    margin-right: 20rpx;
+    border-radius: 5rpx;
+}
+.numbox .input input{
+    width: 470rpx;
+    height: 70rpx;
+    text-indent: 1em;
+    font-size: 30rpx;
+}
+.numbox .input{
+      height: 70rpx;  
+}
+/* 交易列表 */
+.deal{
+    margin-top: 20rpx;
+    background: white;
+    padding: 0 30rpx;
+}
+.deal .dealtilte{
+    padding: 27rpx 0;
+    text-align: center;
+    font-size: 35rpx;
+    border-bottom:2rpx solid #dfdfdf;
+    font-weight: bold;
+}
+.list{
+    padding: 20rpx 0;
+    border-bottom:2rpx solid #dfdfdf;
+}
+.list .top>view{
+   display: inline-block;
+   vertical-align: top;
+   font-size: 30rpx;
+}
+.list .top .label{
+    font-size: 25rpx;
+    color: rgba(250, 108, 10, 1);
+    border:2rpx solid rgba(250, 108, 10, 1);
+    padding: 5rpx 10rpx;
+    margin-right: 30rpx;
+}
+.list .top .price{
+    float: right;
+    color: rgba(250, 108, 10, 1);
+}
+.list .bottom>text{
+    display: inline-block;
+    margin-right: 15rpx;
+    color: #adadad; 
+    font-size: 25rpx;
+    margin-top: 15rpx;
+}
+.dealtime{
+    float: right;
+}

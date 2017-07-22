@@ -1,60 +1,74 @@
 /* index.wxss */
-page{
+
+page {
     background: #f4f4f4;
 }
+
 /* 头BANNER样式 */
-.banner image{
+
+.banner image {
     height: 100%;
     width: 100%;
 }
+
 /* 导航 */
-.nav{
+
+.nav {
     background: white;
 }
-.nav>view{
+
+.nav>view {
     display: inline-block;
     width: 33.33%;
-    padding:32rpx 0;
+    padding: 32rpx 0;
     vertical-align: top;
 }
-.nav .nav_pic{
+
+.nav .nav_pic {
     text-align: center;
 }
-.nav .nav_pic image{
+
+.nav .nav_pic image {
     height: 93rpx;
     width: 93rpx;
 }
-.nav .nav_name{
-    margin-top:5rpx;
+
+.nav .nav_name {
+    margin-top: 5rpx;
     font-size: 28rpx;
-    text-align: center
+    text-align: center;
 }
 
 /* 头部选项 */
-.options{
+
+.options {
     background: white;
     padding: 34rpx;
     margin-top: 18rpx;
 }
-.options .cases>view{
-   display: inline-block;
-   width: 25%;
-   text-align: center;
-   vertical-align: top;
-   margin-bottom: 60rpx;
-   font-size: 28rpx;
-   font-weight: bold;
+
+.options .cases>view {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 60rpx;
+    font-size: 28rpx;
+    font-weight: bold;
 }
-.options .logo>view{
+
+.options .logo>view {
     display: inline-block;
     width: 12.5%;
     text-align: center;
 }
-.options .logo image{
+
+.options .logo image {
     width: 52rpx;
     height: 52rpx;
 }
-.options .logo .logo_name{
+
+.options .logo .logo_name {
     margin-top: 10rpx;
     font-size: 25rpx;
     font-weight: bold;
@@ -62,44 +76,55 @@ page{
 }
 
 /* 资讯 */
-.article{
+
+.article {
     padding: 31rpx;
     background: white;
     margin-top: 18rpx;
 }
-.article .title{
+
+.article .title {
     font-weight: bold;
 }
-.article .list{
+
+.article .list {
     margin-top: 35rpx;
     font-size: 30rpx;
 }
-.article text{
+
+.article text {
     float: right;
     color: dimgray;
     font-size: 25rpx;
 }
+
 /* 好车推荐 */
-.recommend{
+
+.recommend {
     padding: 31rpx;
     background: white;
     margin-top: 18rpx;
 }
-.recommend .li{
+
+.recommend .li {
     border-bottom: 4rpx solid #f4f4f4;
     padding: 30rpx 0;
 }
-.recommend .title{
+
+.recommend .title {
     font-weight: bold;
 }
-.recommend .rec_pic{
+
+.recommend .rec_pic {
     display: inline-block;
 }
-.recommend .rec_pic image{
-   width: 254rpx;
-   height: 177rpx;
+
+.recommend .rec_pic image {
+    width: 254rpx;
+    height: 177rpx;
 }
-.recommend .rec_name{
+
+.recommend .rec_name {
     margin-left: 30rpx;
     display: inline-block;
     vertical-align: top;
@@ -110,47 +135,57 @@ page{
     overflow: hidden;
     position: relative;
 }
-.recommend .rec_name .carname{
+
+.recommend .rec_name .carname {
     line-height: 40rpx;
     height: 80rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: pre-wrap;
 }
-.recommend .rec_name .info{
+
+.recommend .rec_name .info {
     color: dimgray;
     font-size: 25rpx;
     font-weight: normal;
     margin-top: 10rpx;
 }
-.recommend .rec_name .price{
+
+.recommend .rec_name .price {
     position: absolute;
     bottom: 0;
     color: orangered;
-} 
-.recommend .rec_name .price text{
+}
+
+.recommend .rec_name .price text {
     color: dimgray;
     font-size: 25rpx;
     font-weight: normal;
 }
-.recommend .rec_name .price text text{
+
+.recommend .rec_name .price text text {
     text-decoration: line-through;
 }
+
 /* 工具栏 */
-.toolbar{
+
+.toolbar {
     position: absolute;
     top: 20rpx;
     left: 0;
     padding: 0 30rpx;
 }
-.toolbar>view{
+
+.toolbar>view {
     display: inline-block;
     background: white;
     vertical-align: top;
 }
-.toolbar .city{
+
+.toolbar .city {
     width: 125rpx;
-    height:54rpx;
+    height: 54rpx;
     border-radius: 5rpx;
     line-height: 54rpx;
     text-align: left;
@@ -158,7 +193,8 @@ page{
     vertical-align: middle;
     color: grey;
 }
-.toolbar .city text{
+
+.toolbar .city text {
     text-indent: 20rpx;
     vertical-align: middle;
     display: inline-block;
@@ -167,163 +203,193 @@ page{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.city image{
-    height:40rpx;
+
+.city image {
+    height: 40rpx;
     width: 40rpx;
     vertical-align: middle;
 }
-.toolbar .search{
+
+.toolbar .search {
     height: 54rpx;
     width: 535rpx;
     margin-left: 30rpx;
-    border-radius:5rpx;
+    border-radius: 5rpx;
     text-align: center;
     line-height: 54rpx;
     font-size: 25rpx;
     color: gainsboro;
     text-indent: -15rpx;
 }
-.search image{
+
+.search image {
     height: 30rpx;
     width: 30rpx;
     vertical-align: middle;
     margin-right: 20rpx;
 }
+
 /* 搜索分页 */
-.searchpage{
+
+.searchpage {
     position: fixed;
     top: 0;
     width: 100%;
     background: white;
-    transition-property:left;
-    transition-duration: 0.5s; 
+    transition-property: left;
+    transition-duration: 0.5s;
 }
-.box{
+
+.box {
     background: #f4f4f4;
     padding: 10rpx;
 }
-.box>view{
+
+.box>view {
     display: inline-block;
     height: 60rpx;
     line-height: 60rpx;
     vertical-align: top;
 }
-.box .input{
+
+.box .input {
     background: white;
 }
-.input input{
+
+.input input {
     height: 60rpx;
     display: inline-block;
     vertical-align: top;
     width: 500rpx;
 }
-.input image{
+
+.input image {
     width: 40rpx;
     height: 40rpx;
     vertical-align: middle;
     position: relative;
-    top:-3rpx;
+    top: -3rpx;
     margin-left: 20rpx;
 }
-.back image{
+
+.back image {
     height: 50rpx;
     width: 50rpx;
     transform: rotate(90deg) translateX(5rpx);
 }
-.box text{
+
+.box text {
     height: 60rpx;
     line-height: 60rpx;
     padding-left: 25rpx;
     color: green;
 }
+
 /*状态切换*/
-.searchon{
+
+.searchon {
     left: 0;
-     
 }
-.searchoff{
+
+.searchoff {
     left: 750rpx;
 }
-.cityon{
+
+.cityon {
     left: 0;
-     
 }
-.cityoff{
+
+.cityoff {
     left: 750rpx;
 }
+
 /*城市分页*/
-.citypage{
+
+.citypage {
     position: fixed;
     top: 0;
     width: 100%;
     background: #f4f4f4;
-    transition-property:left;
-    transition-duration: 0.5s; 
+    transition-property: left;
+    transition-duration: 0.5s;
 }
-.citycase{
+
+.citycase {
     padding: 40rpx 20rpx;
     font-size: 25rpx;
     text-align: left;
     border-bottom: 2rpx solid #f4f4f4;
     background: white;
 }
-.citynow{
-    padding-top:75rpx;
+
+.citynow {
+    padding-top: 75rpx;
 }
-.citynow .title{
+
+.citynow .title {
     padding: 20rpx 20rpx;
-     font-size: 25rpx;
-     text-align: left;
+    font-size: 25rpx;
+    text-align: left;
     border: 2rpx solid #f4f4f4;
     background: white;
 }
-.citylist{
+
+.citylist {
     margin: 20rpx 0;
 }
-.citylist .title{
+
+.citylist .title {
     padding: 20rpx 20rpx;
-     font-size: 25rpx;
-     color:grey;
-     text-align: left;
+    font-size: 25rpx;
+    color: grey;
+    text-align: left;
     border: 2rpx solid #f4f4f4;
     background: white;
 }
+
 /* 右侧字母导航栏 */
-.anchor{
+
+.anchor {
     width: 100rpx;
     position: absolute;
     top: 0;
     right: 0;
-    padding-top:100rpx; 
+    padding-top: 100rpx;
     z-index: 99;
 }
-.anchor>view{
+
+.anchor>view {
     text-align: center;
     color: green;
     font-size: 30rpx;
     height: 40rpx;
 }
+
 /* 假头部 */
-.header{
+
+.header {
     background: #f4f4f4;
     padding: 10rpx;
     position: fixed;
     width: 100%;
 }
-.header>view{
+
+.header>view {
     display: inline-block;
     height: 60rpx;
     line-height: 60rpx;
     vertical-align: top;
 }
-.header .input{
+
+.header .input {
     height: 60rpx;
     display: inline-block;
     vertical-align: top;
     width: 620rpx;
     text-align: center;
 }
-.header .back image{
+
+.header .back image {
     height: 50rpx;
     width: 50rpx;
     transform: rotate(90deg) translateX(5rpx);

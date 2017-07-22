@@ -1,4 +1,32 @@
 <!--index.wxml-->
 <view class="header">
-<image></image>
+    <image></image>
+</view>
+<view class="num">
+    <view class="total">110119120</view>
+    <view class="desc">位车主提交了卖车申请</view>
+    <view class="penel">
+        <view class="inputbox"> <input placeholder="请输入您的手机号" /> </view>
+        <button class="mainbutton">预约卖车</button>
+        <button class="free">免费资讯</button>
+        <button class="estimate">爱车估价</button>
+    </view>
+</view>
+<!-- 卖车流程 -->
+<view class="procedure">
+    <view class="title">卖车流程</view>
+    <view class="progamme">
+        <image src="../../../image/procedure.png"></image>
+    </view>
+</view>
+<!-- 疑问 -->
+<view class="indication">
+    <view class="title">卖车指南</view>
+    <view class="interact" wx:for="{{4}}">
+    <view class="question"> <text>Q1</text> <text class="content">问题问题问题问题问题问题问题问题</text>  
+    <view class="expend" bindtap="statuschange" data-index="{{index}}">
+    <image class="arrow {{expend[index]==0?'arrowoff':'arrowon'}}" src="../../../image/{{expend[index]==0?'arrowoff':'arrowon'}}.png"></image>
+    </view></view>
+    <view class="answer" class="{{expend[index]==0?'expend':'conpressed'}}">回答回答回答回答回答回答回答回答回答回答回答回答回答回答</view>
+    </view>
 </view>

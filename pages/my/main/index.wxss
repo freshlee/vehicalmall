@@ -1,1 +1,73 @@
 /* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.head{
+    position: relative;
+    height: 300rpx;
+}
+.head image{
+    width: 100%;
+    height: 300rpx;
+    filter: blur(10px);
+}
+.head .protrait{
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    margin-left: -85rpx;
+    top: 30rpx;
+}
+.head .protrait image{
+    filter: none;
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6rpx solid white;
+}
+.head .protrait .username{
+    color: white;
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: bold;
+    line-height: 60rpx;
+}
+/* 导航 */
+.nav{
+    background: white;
+    padding: 40rpx 0 30rpx;
+}
+.nav>view{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+.nav image{
+    width: 80rpx;
+    height: 80rpx;
+} 
+.nav .name{
+    font-size: 30rpx;
+    margin-top: 10rpx;
+}
+/* 列表 */
+.case{
+    margin-top: 20rpx;
+    background: white;
+    padding: 0 30rpx; 
+}
+.case .list{
+  height: 110rpx;
+  line-height: 110rpx;
+   border-bottom: 2rpx solid #f4f4f4;
+   font-size: 30rpx;
+}
+.case .list:last-of-type{
+   border-bottom: none;
+}
+.case .logo{
+    width: 50rpx;
+    height: 50rpx;
+    transform: translateY(10rpx);
+}

@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<!-- 头部 -->
+<view class="header">
+    <view class="name">2012款 XXX时尚型</view>
+    <view class="info">
+        <text>2012-6-7</text><text>15万公里</text><text>佛山</text>
+    </view>
+    <view class="result">
+        <view>评估价（万）</view>
+        <view class="price">6.64</view>
+    </view>
+</view>
+<!-- 号码输入盒子 -->
+<view class="numbox">
+    <view class="title">帮你高价卖好车</view>
+    <view class="panel">
+    <view class="input"> <input placeholder="请输入手机号"/> </view>
+    <view class="button"> 免费卖车 </view>
+    </view>
+</view>
+
+<!-- 成交记录 -->
+<view class="deal">
+    <view class="dealtilte">卖车成交记录</view>
+    <view class="list" wx:for="{{5}}">
+        <view class="top">
+            <view class="label">同车型</view>
+            <view class="name">2012款 XXX时尚型</view>
+            <view class="price">6.24万</view>
+        </view>
+        <view class="bottom">
+            <text>佛山</text><text>2012年6月</text><text>15万公里</text>  <text class="dealtime">成交于2015.5.28</text>
+        </view>
+    </view>
+</view>
