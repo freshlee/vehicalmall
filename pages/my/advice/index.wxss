@@ -1,0 +1,39 @@
+/* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.title{
+    height: 85rpx;
+    line-height: 85rpx;
+    font-size: 30rpx;
+    padding-left: 35rpx;
+    background: #f4f4f4;
+    color: dimgray;
+}
+.cate{
+    background: white;
+    padding: 15rpx 0;
+}
+.cate .list{
+    display: inline-block;
+    width: 33.33%;
+    box-sizing: border-box; 
+    text-align: left;
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+    padding-left: 20rpx;
+    font-size: 30rpx;
+}
+.cate label text{
+position: relative;
+top: 7rpx;
+}
+
+textarea{
+    margin-top: 20rpx;
+    background: white;
+    width: 100%;
+    font-size: 30rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+}

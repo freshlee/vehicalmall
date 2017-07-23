@@ -5,17 +5,51 @@
     <view> <text class="tag">检测时间：</text>2017-7-24</view>
 </view>
 
-<view class="title"> <view class="line"></view> 事故排查 <image src="../../../image/arrowon.png"></image> </view>
-<view class="box">
-<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+<view class="contain">
+<view class="title" bindtap="click" data-index="1">
+    <view class="line"></view> 事故排查
+    <image src="../../../image/arrowon.png" class="{{cases[1]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[1]==1?'expend':'compressed'}}">
+    <view class="list" wx:for="{{5}}">1.左西柱
+        <image src="../../../image/tickeron.png"></image>
+    </view>
+</view>
 </view>
 
-<view class="title"> <view class="line"></view> 事故排查</view>
-<view class="box">
-<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+
+<view class="contain">
+<view class="title" bindtap="click" data-index="2">
+    <view class="line"></view> 事故排查
+    <image src="../../../image/arrowon.png" class="{{cases[2]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[2]==1?'expend':'compressed'}}">
+    <view class="list" wx:for="{{5}}">1.左西柱
+        <image src="../../../image/tickeron.png"></image>
+    </view>
+</view>
 </view>
 
-<view class="title"> <view class="line"></view> 事故排查</view>
-<view class="box">
-<view class="list" wx:for="{{5}}">1.左西柱 <image src="../../../image/tickeron.png"></image> </view>
+<view class="contain">
+<view class="title" bindtap="click" data-index="3">
+    <view class="line"></view> 事故排查
+    <image src="../../../image/arrowon.png" class="{{cases[3]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[3]==1?'expend':'compressed'}}">
+    <view class="list" wx:for="{{5}}">1.左西柱
+        <image src="../../../image/tickeron.png"></image>
+    </view>
+</view>
+</view>
+
+<view class="contain">
+<view class="title" bindtap="click" data-index="4">
+    <view class="line"></view> 事故排查
+    <image src="../../../image/arrowon.png" class="{{cases[4]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[4]==1?'expend':'compressed'}}">
+    <view class="list" wx:for="{{5}}">1.左西柱
+        <image src="../../../image/tickeron.png"></image>
+    </view>
+</view>
 </view>

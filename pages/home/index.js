@@ -70,17 +70,6 @@ Page({
                  province:res.data.result[0],
                  city: res.data.result[1],
              })
-             //获取二级地名
-            //  var provinces = res.data.result[0];
-            //  for (var key in provinces) {
-            //      var ele=provinces[key].cidx;
-            //      var first=ele[0];
-            //      var last=ele[1];
-            //      provinces[key].list=THIS.data.city.slice(first,last);
-            //  }
-            //  THIS.setData({
-            //      province: provinces,
-            //  })
              //把参数分成26组
              var categroup = [{ name: "A", lists: [] }, { name: "B", lists: [] }, { name: "C", lists: [] }, { name: "D", lists: [] }, { name: "E", lists: [] }, { name: "F", lists: [] }, { name: "G", lists: [] }, { name: "H", lists: [] }, { name: "I", lists: [] }, { name: "J", lists: [] }, { name: "K", lists: [] }, { name: "L", lists: [] }, { name: "M", lists: [] }, { name: "N", lists: [] }, { name: "O", lists: [] }, { name: "P", lists: [] }, { name: "Q", lists: [] }, { name: "R", lists: [] }, { name: "S", lists: [] }, { name: "T", lists: [] }, { name: "U", lists: [] }, { name: "V", lists: [] }, { name: "W", lists: [] }, { name: "X", lists: [] }, { name: "Y", lists: [] }, { name: "Z", lists: [] }];
              var cates = res.data.result[1];

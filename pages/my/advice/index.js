@@ -4,8 +4,21 @@ Page({
   /**
    * 页面的初始数据
    */
+    radioChange: function (e) {
+        console.log('radio发生change事件，携带value值为：', e.detail.value)
+    },
   data: {
-  
+      items: [
+          { name: '1', value: '服务不专业' },
+          { name: '2', value: '带看不及时', checked: 'true' },
+          { name: '3', value: '产品问题' },
+          { name: '4', value: '乱收费' },
+          { name: '5', value: '车描述不符' },
+          { name: '6', value: '车况不属实' },
+          { name: '7', value: '退款相关' },
+          { name: '8', value: '停售改价' },
+          { name: '9', value: '其他' },
+      ]
   },
 
   /**

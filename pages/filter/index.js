@@ -7,8 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        poly:[{name:"排量",maxvalue:5,minvalue:0,step:1,min:0,max:5,interval:1,keyname:"exhaust"},
-        {keyname:"distance",name:"行程",maxvalue:15,minvalue:0,step:1,min:0,max:5,interval:1}],
+        poly: [{ name: "排量", maxvalue: 5, minvalue: 0, step: 1, min: 0, max: 5, interval: 1, keyname: "exhaust" },
+        { keyname: "distance", name: "行程", maxvalue: 15, minvalue: 0, step: 1, min: 0, max: 5, interval: 1 }],
         price: [{ checked: false, id: "0", name: "黑色", color: "black" }, { checked: false, id: "1", name: "白色", color: "white" }, { checked: false, id: "2", name: "银灰色", color: "#f4f4f4" }, { checked: false, id: "3", name: "深灰色", color: "grey" }, { checked: false, id: "4", name: "红色", color: "red" }, { checked: false, id: "5", name: "橙色", color: "orange" }, { checked: false, id: "6", name: "绿色", color: "green" }, { checked: false, id: "7", name: "蓝色", color: "blue" }, { checked: false, id: "8", name: "咖啡色", color: "coffee" }, { checked: false, id: "9", name: "紫色", color: "purple" }, { checked: false, id: "10", name: "香槟色", color: "#F7E7CE" }, { checked: false, id: "11", name: "黄色", color: "yellow" }, { checked: false, id: "12", name: "其他", color: "" }],
         location: [{ checked: false, id: "0", name: "本地牌照" }, { checked: false, id: "1", name: "外地牌照" }],
         nation: [{ checked: false, id: "0", name: "德系" }, { checked: false, id: "1", name: "日系" }, { checked: false, id: "2", name: "美系" }, { checked: false, id: "3", name: "法系" }, { checked: false, id: "4", name: "韩系" }, { checked: false, id: "5", name: "国产" }, { checked: false, id: "6", name: "其他" }],
@@ -19,7 +19,23 @@ Page({
         seat: [{ checked: false, id: "0", name: "二座" }, { checked: false, id: "1", name: "四座" }, { checked: false, id: "2", name: "五座" }, { checked: false, id: "3", name: "六座" }, { checked: false, id: "4", name: "七座及以上" },]
 
     },
-    cancelprice:function(e){
+    choseorder:function(e){
+        var index=e.currentTarget.dataset.index;
+        this.setData({
+            orderindex:index,
+        })
+    },
+    order:function(){
+        var THIS = this
+        this.setData({
+            orderstatus: !THIS.data.orderstatus,
+            brandstatus: 0,
+            filterstatus: 0,
+            pricestatus:0,
+        })
+        console.log(this.data.orderstatus);
+    },
+    cancelprice: function (e) {
         var key = e.currentTarget.dataset.key;
         var price = this.data.price;
         price[key].checked = false;
@@ -28,39 +44,39 @@ Page({
         })
         this.topricetop();
     },
-    priceChange: function (e){
+    priceChange: function (e) {
         var value = e.detail.value;
         var price = this.data.price;
-        for(var key in price){
-        var proof = price[key].id;
-        if(value.length!=0){
-            for (var i in value) {
-                if (value[i] == proof) {
-                    price[key].checked = true;
-                    break;
-                }
-                else {
-                    price[key].checked = false;
+        for (var key in price) {
+            var proof = price[key].id;
+            if (value.length != 0) {
+                for (var i in value) {
+                    if (value[i] == proof) {
+                        price[key].checked = true;
+                        break;
+                    }
+                    else {
+                        price[key].checked = false;
+                    }
                 }
             }
-        }
-        else{
-            price[key].checked = false;
-        }
+            else {
+                price[key].checked = false;
+            }
         }
         this.setData({
             price: price,
         })
         this.topricetop();
     },
-    topricetop:function(){
+    topricetop: function () {
         var totop = [];
         var price = this.data.price;
-            for (var key in price) {
-                if (price[key].checked == true) {
-                    totop.push({ name: price[key].name, key: key })
-                }
+        for (var key in price) {
+            if (price[key].checked == true) {
+                totop.push({ name: price[key].name, key: key })
             }
+        }
         this.setData({
             topricetop: totop,
         })
@@ -70,8 +86,9 @@ Page({
         var THIS = this
         this.setData({
             pricestatus: !THIS.data.pricestatus,
-            brandstatus:0,
-            filterstatus:0,
+            brandstatus: 0,
+            filterstatus: 0,
+            orderstatus:0
         })
         console.log(this.data.pricestatus);
     },
@@ -94,7 +111,7 @@ Page({
         for (var key in total[index].list) {
             console.log("begin");
             var proof = total[index].list[key].id;
-            if(value.length!=0){
+            if (value.length != 0) {
                 for (var i in value) {
                     if (value[i] == proof) {
                         // if (total[index].list[key].checked == false){
@@ -109,8 +126,8 @@ Page({
                     }
                 }
             }
-            else{
-                        total[index].list[key].checked = false;
+            else {
+                total[index].list[key].checked = false;
             }
         }
         this.setData({
@@ -134,21 +151,47 @@ Page({
     },
     onLoad: function (options) {
         var THIS = this;
-        var superfilter = [{ name: "location", chinese: "本地牌照", list: THIS.data.location },
-        { name: "nation", chinese: "国别", list: THIS.data.nation },
-        { name: "fuel", chinese: "油耗", list: THIS.data.fuel },
-        { name: "gear", chinese: "变速箱", list: THIS.data.gear },
-        { name: "exhaust", chinese: "排标准量", list: THIS.data.exhaust },
-        { name: "seat", chinese: "座位数", list: THIS.data.seat }
-        ];
-        this.setData({
-            superfilter: superfilter,
+        //接入分类数据
+        wx.request({
+            url: getApp().globalData.serverName,
+            data: {
+                openid: getApp().globalData.openid,
+                a: "goods",
+                op: "screen",
+            },
+            success: function (res) {
+                var data = res.data.dat;
+                var superfilter = [{ name: "carmodels", chinese: "本地牌照", list: data.carmodels },
+                { name: "countrys", chinese: "国别", list: data.countrys },
+                { name: "carage", chinese: "车龄", list: data.carage },
+                { name: "colours", chinese: "颜色", list: data.colours },
+                { name: "discharge", chinese: "排标准量", list: data.discharge },
+                { name: "fueltype", chinese: "能源类型", list: data.fueltype },
+                { name: "seats", chinese: "座位数", list: data.seats }
+                ];
+                THIS.setData({
+                    cates: data,
+                    superfilter: superfilter
+                })
+            }
         })
+        // var THIS = this;
+        // var superfilter = [{ name: "location", chinese: "本地牌照", list: THIS.data.location },
+        // { name: "nation", chinese: "国别", list: THIS.data.nation },
+        // { name: "fuel", chinese: "油耗", list: THIS.data.fuel },
+        // { name: "gear", chinese: "变速箱", list: THIS.data.gear },
+        // { name: "exhaust", chinese: "排标准量", list: THIS.data.exhaust },
+        // { name: "seat", chinese: "座位数", list: THIS.data.seat }
+        // ];
+        // this.setData({
+        //     superfilter: superfilter,
+        // })
 
         //初始化参数
         this.setData({
             brandstatus: 0,
             subbrandstatus: 0,
+            orderstatus: 0,
             filterstatus: 0,
             minage: 0,
             maxage: 8,
@@ -157,6 +200,7 @@ Page({
             minexhaust: 0,
             maxexhaust: 5,
             pricestatus: 0,
+            
         })
         //获取屏幕高度
         wx.getSystemInfo({
@@ -184,30 +228,30 @@ Page({
         })
     },
     max: function (e) {
-        var index=e.currentTarget.dataset.index;
+        var index = e.currentTarget.dataset.index;
         var max = e.detail.value;
-        var poly=this.data.poly;
+        var poly = this.data.poly;
         console.log(poly);
         if (max <= poly[index].min) {
-            poly[index].max=poly[index].min+poly[index].interval;
+            poly[index].max = poly[index].min + poly[index].interval;
         }
-        else{
-          poly[index].max=max;
+        else {
+            poly[index].max = max;
         }
-            this.setData({
-                poly: poly,
-            })
+        this.setData({
+            poly: poly,
+        })
 
     },
     min: function (e) {
-        var index=e.currentTarget.dataset.index;
+        var index = e.currentTarget.dataset.index;
         var min = e.detail.value;
-        var poly=this.data.poly;
+        var poly = this.data.poly;
         if (min >= poly[index].max) {
-            poly[index].min=poly[index].max-poly[index].interval;
+            poly[index].min = poly[index].max - poly[index].interval;
         }
-        else{
-          poly[index].min=min;
+        else {
+            poly[index].min = min;
         }
         this.setData({
             poly: poly,
@@ -303,8 +347,9 @@ Page({
     filter: function () {
         this.setData({
             filterstatus: !this.data.filterstatus,
-            brandstatus:0,
-            pricestatus:0
+            brandstatus: 0,
+            pricestatus: 0,
+            orderstatus:0,
         })
     },
     cancelseries: function (e) {
@@ -370,8 +415,9 @@ Page({
     brand: function () {
         this.setData({
             brandstatus: !this.data.brandstatus,
-            pricestatus:0,
-            filterstatus:0,
+            pricestatus: 0,
+            filterstatus: 0,
+            orderstatus:0,
         })
     },
 

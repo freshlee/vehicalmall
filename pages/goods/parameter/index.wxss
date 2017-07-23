@@ -20,6 +20,10 @@ page{
 .title{
     height: 103rpx;
     line-height: 103rpx;
+    border-top:2rpx solid #adadad;
+}
+.contain:last-of-type .title{
+    border-bottom:2rpx solid #adadad;
 }
 .line{
     border-left: 4rpx solid rgba(250, 128, 10,1);
@@ -58,8 +62,14 @@ page{
 }
 /* 样式切换 */
 .arrowon{
-
+  transform: rotate(180deg);
 }
 .arrowoff{
-
+  transform: rotate(0);
+}
+.expend{
+  display: block;
+}
+.compressed{
+  display: none;
 }

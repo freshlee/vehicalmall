@@ -5,7 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      cases:[],
+  },
+  click:function(e){
+      console.log(e.currentTarget.dataset.index);
+     var index=e.currentTarget.dataset.index;
+     var cases=this.data.cases;
+     cases[index] = !cases[index];
+     this.setData({
+         cases:cases,
+     })
   },
 
   /**

@@ -1,1 +1,46 @@
 /* index.wxss */
+.cases{
+    padding-bottom: 57rpx;
+    padding-top: 57rpx;
+    padding-left:117rpx;
+    position: relative;
+    z-index: 1;
+}
+.cases>view{
+    display: inline-block;
+    vertical-align: top;
+}
+.cases .pic{
+    width: 110rpx;
+    height: 110rpx;
+    border:4rpx solid #454545;
+    border-radius: 50%;
+    position: relative;
+    background: white;
+}
+.cases image{
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 18rpx;
+    left: 18rpx;
+}
+.cases .right{
+    font-size: 30rpx;
+    margin-left: 55rpx;
+}
+.cases .top{
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 35rpx;
+}
+.cases .bottom{
+    font-size: 25rpx;
+}
+/* 状态切换 */
+.chosen{
+    border:4rpx solid rgba(250, 128, 10, 1)!important;
+}
+.chosen+view view{
+    color: rgba(250, 128, 10, 1)!important;
+}

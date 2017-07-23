@@ -1,2 +1,34 @@
 <!--index.wxml-->
-<text>index.wxml</text>
+<view class="cases">
+<view class="pic {{status>=1?'chosen':''}}"> <image src="../../../image/{{status>=1?'submiton':'submitoff'}}.png"></image> </view>
+<view class="right">
+<view class="top">提交信息</view>
+<view class="bottom">提交信息等待客服电话预约</view>
+</view>
+</view>
+
+<view class="cases">
+<view class="pic {{status>=2?'chosen':''}}"> <image src="../../../image/{{status>=2?'houseserviceon':'houseserviceoff'}}.png"></image> </view>
+<view class="right">
+<view class="top">上门服务</view>
+<view class="bottom">专业评估师上门验车，全面检测</view>
+</view>
+</view>
+
+<view class="cases">
+<view class="pic {{status>=3?'chosen':''}}"> <image src="../../../image/{{status>=3?'carlogoon':'carlogooff'}}.png"></image> </view>
+<view class="right">
+<view class="top">买车看车</view>
+<view class="bottom">严格筛选买家，价格合理快速出售</view>
+</view>
+</view>
+
+<view class="cases">
+<view class="pic {{status>=4?'chosen':''}}"> <image src="../../../image/{{status>=4?'Dealon':'Dealoff'}}.png"></image> </view>
+<view class="right">
+<view class="top">交易过户</view>
+<view class="bottom">过户所有手续，无后顾之忧</view>
+</view>
+</view>
+
+ <canvas canvas-id="bar" style="position:absolute;top:60rpx;left:175rpx;height:800rpx;width:750rpx;transform: scaleY({{times}});transform-origin:0 0;" />

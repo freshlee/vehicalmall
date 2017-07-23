@@ -268,14 +268,27 @@
     display: none;
 }
 .choseoption{
-    border: 2rpx solid green !important;
-    box-shadow:0rpx 0rpx 10rpx greenyellow inset !important;
+    border: 2rpx solid rgb(190,200,190)!important;
+    background:rgb(238,254,243);
+    color:rgb(29,164,60)!important;
 }
 .pricefilteron{
-    display: block
+    display: block;
 }
 .pricefilteroff{
     display: none;
+}
+.orderon{
+    display: block;
+}
+.orderoff{
+    display: none;
+}
+.orderoptionon{
+    color:rgb(29,164,60); 
+}
+.orderoptionoff{
+    color: #454545;
 }
 
 /* 高级筛选页面 */
@@ -343,7 +356,6 @@
     font-size: 30rpx;
     color: dimgray;
     border: 2rpx solid dimgray;
-    box-shadow:0rpx 0rpx 10rpx #999 inset;
     border-radius: 5rpx; 
     height: 60rpx;
     overflow: hidden;
@@ -409,8 +421,36 @@
     top:80rpx;
     left: 0;
 }
-.pricefilter .pricerange{
-    
+/* 智能排序 */
+.order{
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    width:100%;
+    top:80rpx;
+    left: 0;
+}
+.orderbox{
+    padding-left:30rpx; 
+    box-sizing: border-box;
+    background: white;
+}
+.order .list{
+    height: 108rpx;
+    line-height: 108rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+}
+.order .list image{
+    width:35rpx;
+    height: 35rpx;
+    position: relative;
+    top: 5rpx;
+}
+.order .list .last{
+    float: right;
+    margin-right: 40rpx;
+    margin-top:25rpx;
+    width:35rpx;
+    height: 40rpx;
 }
 
 

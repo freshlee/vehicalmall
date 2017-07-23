@@ -1,0 +1,14 @@
+<view class="title">
+
+    选择反馈类型</view>
+
+<view class="cate">
+    <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+                    <view class="list">
+    <radio value="{{item.name}}" checked="{{item.checked}}"/> <text>{{item.value}}</text>
+          </view></label>
+    </radio-group>
+</view>
+
+<textarea placeholder="您的意见与反馈是我们前进的动力" />
