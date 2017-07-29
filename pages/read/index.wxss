@@ -1,0 +1,29 @@
+/* index.wxss */
+@import "../../wxParse/wxParse.wxss";
+.title{
+    position: absolute;
+  right: 0;
+  z-index: 99;
+}
+.panel{
+  text-align: right;
+  padding:0 10rpx;
+}
+.panel view{
+  display: inline-block;
+  margin:10rpx 10rpx;
+  padding: 20rpx 30rpx;
+  font-size:35rpx;
+  border-radius: 10%;
+  border:1px solid grey;  
+}
+.content{
+  padding:120rpx 25rpx;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}

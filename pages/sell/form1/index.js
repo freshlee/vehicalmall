@@ -1,4 +1,7 @@
 // index.js
+var pingyin = require("../../../utils/pinyin.js");
+var url;
+var cate = [];
 Page({
 
   /**
@@ -7,7 +10,44 @@ Page({
   data: {
   
   },
-
+  mileage:function(e){
+      this.setData({
+          mileage:e.detail.value,
+      })
+  },
+  go:function(){
+      //生成随机数作为订单号
+      var random;
+      var today=new Date;
+      random = "" + Math.ceil(10 * Math.random()) + Math.ceil(10 * Math.random()) + Date.parse(today);
+      var THIS=this;
+      if (THIS.data.num&&THIS.data.location && THIS.data.mileage && THIS.data.seriesname && THIS.data.date){
+          wx.request({
+              url: getApp().globalData.serverName,
+              data: {
+                  a: "me",
+                  op: "sellcars",
+                  phone: THIS.data.num,
+                  openid: getApp().globalData.openid,
+                  address: THIS.data.location,
+                  mileage: THIS.data.mileage,
+                  brand: THIS.data.seriesname,
+                  boarding: THIS.data.date,
+                  randoms:random,
+              },
+          })
+          wx.navigateTo({
+              url: '../form2/index',
+          })
+      }
+      else{
+          wx.showToast({
+              title: '请将信息填写完整',
+              image:'../../../image/failure.png',
+              duration:3000,
+          })
+      }
+  },
   //取消车系
   filter: function () {
       this.setData({
@@ -48,7 +88,6 @@ Page({
           seriesid: id,
       })
       this.brand();
-      console.log(this.data.brandstatus)
   },
   //选择编号
   toscroll: function (event) {
@@ -65,30 +104,98 @@ Page({
   },
   //副品牌筛选开启,选择品牌
   subbrand: function (e) {
-      var cateid = e.currentTarget.dataset.cateid;
-      var catename = e.currentTarget.dataset.catename;
-      var serieslist = e.currentTarget.dataset.serieslist;
+      if (e.currentTarget.dataset.all) {
+          this.setData({
+              serieslist: this.data.allcates,
+              subbrandstatus: 1,
+              cateid: null,
+              catename: "所有品牌",
+          })
+      }
+      else {
+          var cateid = e.currentTarget.dataset.cateid;
+          var catename = e.currentTarget.dataset.catename;
+          for (var key in cate) {
+              if (cate[key].id == cateid) {
+                  this.setData({
+                      serieslist: cate[key].tree.nodes,
+                      serieslogo: cate[key].tree.thumb,
+                  })
+              }
+          }
+      }
       this.setData({
           subbrandstatus: 1,
           cateid: cateid,
           catename: catename,
-          serieslist: serieslist,
       })
   },
-  //主品牌筛选切换
+  //主品牌筛选切换,退出时提交品牌表单
   brand: function () {
+      var THIS = this;
+      var pcate = this.data.cateid;
+      var cates = this.data.seriesid;
       this.setData({
           brandstatus: !this.data.brandstatus,
           pricestatus: 0,
           filterstatus: 0,
+          orderstatus: 0,
       })
   },
-
+  bindDateChange: function (e) {
+      this.setData({
+          date: e.detail.value,
+      })
+  },
+  location:function(){
+      var THIS=this;
+      wx.chooseLocation({
+          success: function(res) {
+             THIS.setData({
+                 location:res.address,
+             })
+          },
+      })
+  },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
       var THIS=this;
       this.setData({
           brandstatus: 0,
           subbrandstatus: 0,
+          num:options.num,
+      })
+      //接入品牌数据
+      url = getApp().globalData.serverName + "&a=category&op=list";
+      wx.request({
+          url: url,
+          success: function (res) {
+              //把参数分成26组
+              var categroup = [{ name: "A", lists: [] }, { name: "B", lists: [] }, { name: "C", lists: [] }, { name: "D", lists: [] }, { name: "E", lists: [] }, { name: "F", lists: [] }, { name: "G", lists: [] }, { name: "H", lists: [] }, { name: "I", lists: [] }, { name: "J", lists: [] }, { name: "K", lists: [] }, { name: "L", lists: [] }, { name: "M", lists: [] }, { name: "N", lists: [] }, { name: "O", lists: [] }, { name: "P", lists: [] }, { name: "Q", lists: [] }, { name: "R", lists: [] }, { name: "S", lists: [] }, { name: "T", lists: [] }, { name: "U", lists: [] }, { name: "V", lists: [] }, { name: "W", lists: [] }, { name: "X", lists: [] }, { name: "Y", lists: [] }, { name: "Z", lists: [] }];
+              // var cates = [{ cateid: 1, catename: "别克", series: [{ name: "车辆1", id: "1" }, { name: "车辆2", id: "2" }] }, { cateid: 2, catename: "奥迪", series: [{ name: "车辆3", id: "3" }, { name: "车辆4", id: "4" }] }, { cateid: 3, catename: "东风", series: [{ name: "车辆5", id: "5" }, { name: "车辆6", id: "6" }] }]
+              var cates = res.data;
+              var allcates = [];
+              cate = res.data;
+              for (var key in cates) {
+                  allcates = allcates.concat(cates[key].tree.nodes);
+                  for (var i in categroup) {
+                      cates[key].chinese = pingyin.transition(cates[key].tree.name);
+                      if (cates[key].chinese.substr(0, 1) == categroup[i].name) {
+                          categroup[i].lists.push(cates[key]);
+                      }
+                  }
+              }
+              //设置品牌数据
+              // THIS.setData({
+              //     listbox: categroup,
+              // })
+              THIS.setData({
+                  listbox: categroup,
+                  allcates: allcates,
+              })
+          },
       })
     //   获取频幕宽度
     wx.getSystemInfo({
@@ -106,7 +213,7 @@ Page({
       var context = wx.createCanvasContext('bar')
       
       context.beginPath();
-      context.arc(55, 15, 5, 1 * Math.PI,3.5 * Math.PI);
+      context.arc(55, 15, 5, 1 * Math.PI,3 * Math.PI);
       context.setStrokeStyle("rgba(250, 128, 10,0.4)")
       context.setFillStyle("rgba(250, 128, 10,1)");
       context.setLineWidth(5);
@@ -124,7 +231,7 @@ Page({
       context.closePath();
 
       context.beginPath();
-      context.arc(180, 15, 5, 1 * Math.PI, 3.5 * Math.PI);
+      context.arc(180, 15, 5, 1 * Math.PI, 3 * Math.PI);
       context.setStrokeStyle("rgba(250, 128, 10,0.4)")
       context.setFillStyle("rgba(250, 128, 10,1)");
       context.setLineWidth(5);
@@ -143,7 +250,7 @@ Page({
 
 
       context.beginPath();
-      context.arc(315, 15, 5, 1 * Math.PI, 3.5 * Math.PI);
+      context.arc(315, 15, 5, 1 * Math.PI, 3 * Math.PI);
       context.setStrokeStyle("rgba(144,144,144,0.4)")
       context.setFillStyle("rgba(144,144,144,1)");
       context.setLineWidth(5);

@@ -1,13 +1,15 @@
-/* index.wxss */
+@import "../../../wxParse/wxParse.wxss";
 page{
     background: #f4f4f4;
 }
 .header{
     background: #f4f4f4;
 }
-.header image{
-    width: 750rpx;
-    height: 300rpx;
+/* 头BANNER样式 */
+
+.banner image {
+    height: 100%;
+    width: 100%;
 }
 /* 按钮区 */
 .num{
@@ -17,7 +19,7 @@ page{
 .num .total{
     text-align: center;
     font-size: 40rpx !important;
-    color: orangered;
+    color: #FA800a;
     line-height: 50rpx;
     height: 50rpx;
 }
@@ -40,7 +42,7 @@ page{
 }
 .num .mainbutton{
     margin-top: 30rpx;
-    background: orangered;
+    background: #FA800a;
     border: none;
     color: white;
     border-radius: 5rpx;
@@ -104,7 +106,7 @@ page{
     display: inline-block;
 }
 .indication .question text{
-    color: orangered;
+    color: #FA800a;
     margin-right: 10rpx;
 }
 .indication .answer{
@@ -129,4 +131,9 @@ page{
 }
 .expend{
     display: block;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
 }

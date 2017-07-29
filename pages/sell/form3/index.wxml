@@ -26,3 +26,4 @@
 
 
 <button class="submit" style="color:white;background:rgba(250, 128, 10,1);border-radius:0;position:fixed;width:100%;bottom:0">我要提交</button>
+ <view id="copyright">{{versioninfo}}</view> 

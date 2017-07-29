@@ -14,9 +14,8 @@
         <image src="../../image/arrow.png"></image>
     </view>
 </view>
-
 <!-- 展示栏 -->
-<view class="show" wx:if="{{catename||seriesname||totop.length||topricetop.length}}">
+<view class="show" wx:if="{{catename||seriesname||totop.length||topricetop.length||agemax||agemin||mileagemax||mileagemin||max||min}}">
     <view class="subscript" wx:if="{{catename}}">{{catename}}
         <image src="../../image/cross.png" data-cateid="{{cateid}}" bindtap="cancelcate"></image>
     </view>
@@ -29,65 +28,67 @@
     <view class="subscript" wx:for="{{totop}}">{{item.name}}
         <image src="../../image/cross.png" data-key="{{item.key}}" data-index="{{item.index}}" bindtap="cancelfilter"></image>
     </view>
-    <view class="subscript" wx:for="{{topricetop}}">{{item.name}}
-        <image src="../../image/cross.png" data-key="{{item.key}}" bindtap="cancelprice"></image>
+    <view class="subscript" wx:if="{{max||min}}">价钱:{{min?min+'万':'0'}}-{{max?max+'万':"不限"}}
+        <image src="../../image/cross.png" bindtap="cancelprice"></image>
+    </view>
+    <view class="subscript" wx:if="{{agemax||agemin}}">车龄:{{agemin?agemin+'年':'0'}}-{{agemax?agemax+'年':"不限"}}
+        <image src="../../image/cross.png" data-key="{{item.key}}" bindtap="cancelage"></image>
+    </view>
+    <view class="subscript" wx:if="{{mileagemax||mileagemin}}">里程:{{mileagemin?mileagemin+'万公里':'0'}}-{{mileagemax?mileagemax+'万公里':"不限"}}
+        <image src="../../image/cross.png" data-key="{{item.key}}" bindtap="cancelmileage"></image>
     </view>
 </view>
-
-
-
 <!-- 列表 -->
 <view class="listcase">
-
-
     <!-- 单列表 -->
-    <view class="case" wx:for="{{3}}">
+    <view class="case" wx:for="{{goods}}" data-id="{{item.id}}" bindtap="jumptodetail">
         <view class="pic">
-            <image src="../../image/car1.jpg"></image>
+            <image src="{{item.thumb}}"></image>
         </view>
         <view class="info">
-            <view class="title">玛莎拉蒂</view>
-            <view class="detail">2013年/6.2万公里</view>
-            <view class="price">198万 <text>新车价</text> <text class="theprice">610万</text> </view>
+            <view class="title">{{item.title}}</view>
+            <view class="detail">{{item.carage}}年/{{item.mileage}}万公里</view>
+            <view class="price">
+                <view>{{item.marketprice}}万</view>
+                <text>新车价</text>
+                <text class="theprice">{{item.productprice}}万</text>
+            </view>
         </view>
     </view>
     <!-- 单列表 -->
-
 </view>
 <!-- 列表 -->
-
-
-
 <!-- 品牌筛选主页面 -->
-<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px">
+<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px;width:750rpx">
     <view class="fakehead">
-        <image bindtap="brand" src="../../image/arrow.png"></image> 品牌选择</view>
+        <image bindtap="brand" src="../../image/arrow.png"></image>
+        品牌选择</view>
+    <button style="display: hidden"></button>
     <scroll-view bindscroll="subbrandclose" scroll-with-animation scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
         <!-- 最热品牌 -->
-        <view class="popular">
-            <view class="casetitle">热门品牌</view>
-            <!-- 单个热门品牌 -->
-            <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
+        <!-- <view class="popular"> -->
+        <!-- <view class="casetitle">热门品牌</view> -->
+        <!-- 单个热门品牌 -->
+        <!-- <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
                 <view class="pic">
                     <image src="../../image/Benz.png"></image>
                 </view>
                 <view class="polularname">奔驰</view>
-            </view>
-            <!-- 单个热门品牌 -->
-        </view>
-
+            </view> -->
+        <!-- 单个热门品牌 -->
+        <!-- </view> -->
         <!-- 品牌列表 -->
-        <view class="listbox" id="all">
+        <!-- <view class="listbox" id="all">
             <view class="brandlist_title">#</view>
             <view class="brandlist">
-                <text class="brandname">不限品牌</text>
+                <text class="brandname" bindtap="subbrand" data-all="1">不限品牌</text>
             </view>
-        </view>
+        </view> -->
         <view class="listbox" wx:for="{{listbox}}" id="{{item.name}}">
             <view class="brandlist_title">{{item.name}}</view>
-            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.series}}" data-cateid="{{item.id}}" data-catename="{{item.catename}}">
-                <image class="brandlogo" src="../../image/Benz.png"></image>
-                <text class="brandname">{{item.catename}}</text>
+            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.tree.nodes}}" data-cateid="{{item.id}}" data-catename="{{item.tree.name}}">
+                <image class="brandlogo" src="{{item.tree.advimg}}"></image>
+                <text class="brandname">{{item.tree.name}}</text>
             </view>
         </view>
     </scroll-view>
@@ -95,33 +96,34 @@
     <view class="anchor">
         <view data-index="all" bindtap="toscroll">#</view>
         <view wx:for="{{listbox}}" data-index="{{item.name}}" bindtap="toscroll">{{item.name}}</view>
-
     </view>
-
     <!-- 副品牌筛选页面 -->
     <view class="subbrand {{subbrandstatus&&serieslist?'subbrandon':'subbrandoff'}}" style="height:{{myheight}}px;width:500rpx;">
         <view class="mainlogo">
-            <image src="../../image/Benz.png"></image>
+            <image src="{{serieslogo}}"></image>
         </view>
         <view class="subbrand_title">选择车系
         </view>
-        <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-id="{{item.id}}" data-name="{{item.name}}">
-            <view class="series_pic">
-                <image src="../../image/jeep.jpg"></image>
+        <scroll-view scroll-y style="height:1000rpx;">
+            <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-id="{{item.id}}" data-name="{{item.name}}">
+                <view class="series_pic">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view class="series_name">{{item.name}}</view>
             </view>
-            <view class="series_name">{{item.name}}</view>
-        </view>
+        </scroll-view>
     </view>
 </view>
-
 <!-- 高级筛选页面-->
 <view class="filter {{filterstatus?'filteron':'filteroff'}}" style="height:{{myheight}}px">
-    <form>
-        <view class="fakehead">
-            <image bindtap="filter" src="../../image/arrow.png"></image>高级筛选</view>
-        <scroll-view scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
-            <!--车型-->
-            <!-- <view class="version">
+    <view class="fakehead">
+        <label for="submitfilter">
+                <image bindtap="filter" src="../../image/arrow.png"></image>
+            </label>高级筛选</view>
+    <button style="display: hidden" formType="submit" id="submitfilter"></button>
+    <scroll-view scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
+        <!--车型-->
+        <!-- <view class="version">
             <view class="casetitle">车型</view>
             <view class="versioncase" wx:for="{{7}}" bindtap="subbrand">
                 <view class="pic">
@@ -130,17 +132,17 @@
                 <view class="versionname">这是奔驰</view>
             </view>
         </view> -->
-            <!-- 热门车  -->
-            <view class="options">
-                <view class="casetitle">热门车</view>
-                <!-- 单个热门品牌 -->
-                <view class="optionscase" wx:for="{{7}}" bindtap="subbrand">
+        <!-- 热门车  -->
+        <!-- <view class="options">
+                <view class="casetitle">热门车</view> -->
+        <!-- 单个热门品牌 -->
+        <!-- <view class="optionscase" wx:for="{{7}}" bindtap="subbrand">
                     <view class="optionsname">选项</view>
-                </view>
-                <!-- 单个热门品牌 -->
-            </view>
-            <!--控件-->
-            <!-- <view class="selector">
+                </view> -->
+        <!-- 单个热门品牌 -->
+        <!-- </view> -->
+        <!--控件-->
+        <!-- <view class="selector">
             <view class="casetitle">车龄/{{minage}}-{{maxage}}年</view>
             <view class="selectbox">
                 <slider min="0" max="8" value="{{maxage}}" data-index="{{index}}" backgroundColor="#f4f4f4" activeColor="rgba(2, 107, 200,1)" bindchange="maxage" />
@@ -171,23 +173,21 @@
                 <view>不限</view>
             </view>
         </view> -->
-
+        <form bindsubmit="filtersubmit">
             <!-- 自定义控件 -->
             <view class="selector" wx:for="{{poly}}" wx:key="mainkey" wx:for-index="ind" wx:for-item="it">
                 <view class="casetitle">{{it.name}}:{{it.min}}-{{it.max}}</view>
                 <view class="selectbox">
-                    <!-- 最大值 -->
-                    <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.max}}" data-index="{{ind}}" backgroundColor="#f4f4f4" activeColor="rrgb(29,164,60,1)" bindchange="max" name="{{keyname}}['max']" />
+                    <!-- 最大值  -->
+                    <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.max}}" data-index="{{ind}}" backgroundColor="#f4f4f4" activeColor="rrgb(29,164,60,1)" bindchange="max" data-name="{{keyname+'max'}}" />
                     <!-- 最小值 -->
-                    <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.min}}" data-index="{{ind}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="min" name="{{keyname}}['min']" />
+                    <slider min="{{it.minvalue}}" max="{{it.maxvalue}}" step="{{it.step}}" value="{{it.min}}" data-index="{{ind}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="min" data-name="{{keyname+'min'}}" />
                 </view>
                 <view class="parameter3">
-                    <view wx:for="{{it.maxvalue-it.minvalue+1}}" style="width:{{100/(it.maxvalue-it.minvalue+1)}}%">{{index}}</view>
+                    <view wx:for="{{it.maxvalue-it.minvalue}}" style="width:{{100/(it.maxvalue-it.minvalue+1)}}%">{{index}}</view>
+                     <view style="width:{{100/(it.maxvalue-it.minvalue+1)}}%">不限</view>
                 </view>
             </view>
-
-
-
             <view class="options" wx:for="{{superfilter}}">
                 <checkbox-group bindchange="checkboxChange" data-index="{{index}}" name="{{item.name}}">
                     <view class="casetitle">{{item.chinese}}</view>
@@ -195,53 +195,47 @@
                     <view class="optionscase" wx:for="{{item.list}}" wx:key="subkey">
                         <view class="optionsname {{item.checked?'choseoption':''}}">
                             <label class="checkbox">
-                {{item.name}}<checkbox value="{{item.id}}"  style="display:none" checked="{{item.checked?true:false}}"/>
-                </label>
+                                {{item.name}}
+                                <checkbox value="{{item.id}}" style="display:none" checked="{{item.checked?true:false}}" />
+                            </label>
                         </view>
                     </view>
                     <!-- 单个热门品牌 -->
                 </checkbox-group>
             </view>
-
-        </scroll-view>
-    </form>
+        </form>
+    </scroll-view>
 </view>
 <!-- 价格排序 -->
-<view class="pricefilter {{pricestatus?'pricefilteron':'pricefilteroff'}}" style="height:{{myheight}}px">
+<view catchtouchmove="end" class="pricefilter {{pricestatus?'pricefilteron':'pricefilteroff'}}" style="height:{{myheight}}px">
     <view class="options">
-        <checkbox-group bindchange="priceChange">
+        <radio-group bindchange="priceChange">
             <view class="optionscase" wx:for="{{price}}">
                 <view class="optionsname {{item.checked?'choseoption':''}}">
                     <label class="checkbox">
-                {{item.name}}<checkbox value="{{item.id}}"  style="display:none"/>
-                </label>
+                        {{item.name}}
+                        <checkbox value="{{item.id}}" style="display:none" />
+                    </label>
                 </view>
             </view>
             <!-- 单个热门品牌 -->
-        </checkbox-group>
+        </radio-group>
+    </view>
+    <view class="selector">
+        <view class="casetitle">自定义价格/{{min}}-{{max}}万  <text bindtap="custom" style="float:right;color:rgba(2, 107, 200,1);">确定</text> </view>
+        <view class="selectbox">
+            <slider min="0" max="40" value="{{max?max:40}}" data-index="{{index}}" backgroundColor="#f4f4f4" activeColor="rgba(2, 107, 200,1)" bindchange="maxprice" />
+            <slider min="0" max="40" value="{{min?min:0}}" backgroundColor="rgba(2, 107, 200,0)" activeColor="#f4f4f4" bindchange="minprice" />
+        </view>
+        <view class="parameter">
+            <view wx:for="{{8}}" style="width:11.11%;">{{index*4}}</view>
+            <view style="width:11.11%;">不限</view>
+        </view>
     </view>
     <view style="height:100%;width:100%;" catchtap="price"></view>
 </view>
-
-<!-- 价格排序 -->
-<view class="pricefilter {{pricestatus?'pricefilteron':'pricefilteroff'}}" style="height:{{myheight}}px">
-    <view class="options">
-        <checkbox-group bindchange="priceChange">
-            <view class="optionscase" wx:for="{{price}}">
-                <view class="optionsname {{item.checked?'choseoption':''}}">
-                    <label class="checkbox">
-                {{item.name}}<checkbox value="{{item.id}}" checked="{{item.checked?true:false}}" style="display:none"/>
-                </label>
-                </view>
-            </view>
-            <!-- 单个热门品牌 -->
-        </checkbox-group>
-    </view>
-    <view style="height:100%;width:100%;" catchtap="price"></view>
-</view>
-
 <!-- 智能排序 -->
-<view class="order {{orderstatus?'orderon':'orderoff'}}" style="height:{{myheight}}px">
+<view catchtouchmove="end" class="order {{orderstatus?'orderon':'orderoff'}}" style="height:{{myheight}}px">
     <view class="orderbox">
         <view class="list {{orderindex==1?'orderoptionon':'orderoptionoff'}}" bindtap="choseorder" data-index="1">
             <image src="../../image/{{orderindex==1?'autoon':'autooff'}}.png"></image> 智能排序
@@ -270,3 +264,6 @@
     </view>
     <view style="height:100%;width:100%;" catchtap="order"></view>
 </view>
+
+<loading hidden="{{hidden}}"></loading>
+ <view id="copyright">{{versioninfo}}</view> 

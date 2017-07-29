@@ -37,3 +37,15 @@ textarea{
     padding: 20rpx;
     box-sizing: border-box;
 }
+.go{
+    margin-top: 200rpx;
+    background: rgba(250, 128, 10,1);
+    color: white;
+    border-radius: 0;
+    width: 90%;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}

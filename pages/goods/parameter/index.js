@@ -7,6 +7,9 @@ Page({
   data: {
       cases:[],
   },
+  getLocalTime: function (nS) {
+      return new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10)
+  },
   click:function(e){
       console.log(e.currentTarget.dataset.index);
      var index=e.currentTarget.dataset.index;
@@ -21,7 +24,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
+      var THIS = this;
+      var id = options.id;
+      wx.request({
+          url: getApp().globalData.serverName,
+          data: {
+              goodsid: id,
+              a: "goods",
+              op: "onegoods"
+          },
+          success: function (res) {
+              var createtime=res.data.dat.goods.createtime;
+              createtime = THIS.getLocalTime(createtime);
+              THIS.setData({
+                  report: res.data.dat.accidents,
+                  detail: res.data.dat,
+                  createtime:createtime,
+              })
+          },
+      })
   },
 
   /**

@@ -1,0 +1,30 @@
+/* index.wxss */
+page{
+    background: #f4f4f4;
+}
+.list{
+    padding: 20rpx 20rpx;
+    box-sizing: border-box;
+    background: white;
+    margin-bottom: 20rpx;
+}
+.list>view{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 50rpx;
+    font-size: 35rpx;
+}
+.list .left .down{
+    color: dimgray;
+}
+.list .right{
+    float: right;
+    line-height: 100rpx;
+    height: 100rpx;
+    color: #adadad;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}

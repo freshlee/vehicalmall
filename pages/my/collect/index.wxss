@@ -27,9 +27,8 @@ page{
 }
 /* 列表样式 */
 .lists{
-    padding: 31rpx;
+    padding: 0 31rpx;
     background: white;
-    margin-top: 18rpx;
 }
 .lists .li{
     border-bottom: 4rpx solid #f4f4f4;
@@ -73,8 +72,18 @@ page{
 .lists .rec_name .price{
     position: absolute;
     bottom: 0;
-    color: orangered;
+    color: #FA800a;
 } 
+.lists .rec_name .price view{
+    display: inline-block;
+    color: #FA800a;
+    font-size: 35rpx;
+    width: 200rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: normal;
+}
 .lists .rec_name .price text{
     color: dimgray;
     font-size: 25rpx;
@@ -84,8 +93,16 @@ page{
     text-decoration: line-through;
 }
 .lists .rec_name .price .newprice{
-    width: 290rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 200rpx;
     display: inline-block;
     text-align: right;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
 }
 

@@ -80,6 +80,10 @@ page{
 .warming .num{
     color: rgba(250, 128, 10,1);
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
 
 
 

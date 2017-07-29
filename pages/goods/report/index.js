@@ -21,6 +21,31 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            versioninfo: getApp().globalData.version,
+        })
+        var THIS=this;
+        var id=options.id;
+        wx.request({
+            url: getApp().globalData.serverName,
+            data: {
+                goodsid: id,
+                a: "goods",
+                op: "onegoods"
+            },
+            success:function(res){
+                THIS.setData({
+                    report:res.data.dat.accidents,
+                    detail:res.data.dat,
+                })
+                // var data=res.dat.dat.accidents;
+                // var accident=data.accident.split(",");
+                // var driver=data.driver.split(",");
+                // var interior=data.interior.split(",");
+                // var safe=data.safe.split(",");
+                //组装安全参数
+            },
+        })
 
     },
 

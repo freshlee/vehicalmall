@@ -1,14 +1,20 @@
 <view class="title">
 
     选择反馈类型</view>
-
+<form bindsubmit="submie" bindsubmit="go">
 <view class="cate">
-    <radio-group class="radio-group" bindchange="radioChange">
+    <radio-group class="radio-group" bindchange="radioChange" name="type">
         <label class="radio" wx:for="{{items}}">
                     <view class="list">
-    <radio value="{{item.name}}" checked="{{item.checked}}"/> <text>{{item.value}}</text>
+    <radio value="{{item.value}}" checked="{{item.checked}}" data-value="{{item.value}}"/> <text>{{item.value}}</text>
           </view></label>
     </radio-group>
 </view>
 
-<textarea placeholder="您的意见与反馈是我们前进的动力" />
+<textarea placeholder="您的意见与反馈是我们前进的动力" name="content" />
+
+
+<button class="go"  form-type="submit">下一步</button>
+</form>
+
+ <view id="copyright">{{versioninfo}}</view> 

@@ -9,39 +9,39 @@
         <swiper-item>
             <!-- 在售 -->
             <scroll-view scroll-y style="height:{{myheight-155}}px">
-            <view class="lists">
-                <view class="li" wx:for="{{3}}">
-                    <view class="rec_pic">
-                        <image src="../../../image/detail_banner.png"></image>
-                    </view>
-                    <view class="rec_name">
-                        <view class="carname">BMW 1系运动轿车,型格由我定义,速度由我掌控,我型我速,玩转世界</view>
-                        <view class="info">2015/2.1万公里</view>
-                        <view class="price">6.60万 <text class="newprice">新车价 <text>10.83万</text></text>
+                <view class="lists">
+                    <view class="li" wx:for="{{onsale}}">
+                        <view class="rec_pic">
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="rec_name">
+                            <view class="carname">{{item.title}}</view>
+                            <view class="info">{{item.carage}}/{{item.mileage}}万公里</view>
+                            <view class="price"><view>{{item.marketprice}}万</view> <text class="newprice">新车价 <text>{{item.productprice}}万</text></text>
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
             </scroll-view>
         </swiper-item>
         <swiper-item>
             <scroll-view scroll-y style="height:{{myheight-155}}px">
-            <view class="lists">
-                <view class="li" wx:for="{{3}}">
-                    <view class="rec_pic">
-                        <image src="../../../image/detail_banner.png"></image>
-                    </view>
-                    <view class="rec_name">
-                        <view class="carname">BMW 1系运动轿车,型格由我定义,速度由我掌控,我型我速,玩转世界</view>
-                        <view class="info">2015/2.1万公里</view>
-                        <view class="price">6.60万 <text class="newprice">新车价 <text>10.83万</text></text>
+                <view class="lists">
+                    <view class="li" wx:for="{{oversale}}">
+                        <view class="rec_pic">
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="rec_name">
+                            <view class="carname">{{item.title}}</view>
+                            <view class="info">{{item.carage}}/{{item.mileage}}万公里</view>
+                            <view class="price"><view>{{item.marketprice}}万</view> <text class="newprice">新车价 <text>{{item.productprice}}万</text></text>
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
             </scroll-view>
         </swiper-item>
     </block>
 </swiper>
 
-<view id="copyright">{{versioninfo}}</view>
+ <view id="copyright">{{versioninfo}}</view> 

@@ -44,12 +44,24 @@ page{
 .box .list:last-of-type{
     border: none;
 }
-.box .list image{
-    width: 40rpx;
-    height: 40rpx;
-    position: relative;
-    top: 25rpx;
+.box .list text{
+    display: inline-block;
+    line-height: 87rpx;
+    height: 87rpx;
+    vertical-align: top;
+}
+.box .list .value{
+    width: 400rpx;
+    line-height: 87rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
     float: right;
+    color: #adadad;
+    font-size: 25rpx;
 }
 .title image{
     display: block;
@@ -72,4 +84,9 @@ page{
 }
 .compressed{
   display: none;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
 }

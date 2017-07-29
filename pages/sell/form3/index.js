@@ -175,6 +175,9 @@ Page({
     },
 
     onLoad: function (options) {
+        this.setData({
+            versioninfo: getApp().globalData.version,
+        })
         var THIS = this;
         var superfilter = [{ name: "location", chinese: "卖车后续计划", list: THIS.data.location },
         ];

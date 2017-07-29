@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="inputbox">
+<view class="left"> <input  style="height:100rpx;" /> </view>
+<view class="right">兑换</view>
+</view>
+
+<view class="coupon">
+<view class="left">
+<view class="name">优惠券</view>
+<view class="date">有效期：2017年07月30日</view>
+</view>
+<view class="right">150<text style="font-size:25rpx">元</text></view>
+<view class="more">查看规则 <image src="../../../image/arrowoff.png" style="width:20rpx;height:20rpx;"></image> </view>
+</view>

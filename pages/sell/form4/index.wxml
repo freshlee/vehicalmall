@@ -1,18 +1,22 @@
 <!--index.wxml-->
-<view class="header" > <icon type="success" size="30" style="position:relative;top:10rpx" color="rgba(250, 128, 10,1)"/> 提交成功</view>
-<button class="go" >查看卖车进度</button>
-<view class="location">  <image src="../../../image/location.png"></image> <text>预约地点</text> 佛山禅城区绿景一路</view>
+<view class="header">
+    <icon type="success" size="30" style="position:relative;top:10rpx" color="rgba(250, 128, 10,1)" /> 提交成功</view>
+<button class="go">查看卖车进度</button>
+<view class="location">
+    <image src="../../../image/location.png"></image> <text>预约地点</text> 佛山禅城区绿景一路</view>
 <view class="cases">
-    <view class="title"> <image src="../../../image/idcard.png"></image> <text>证件准备</text></view>
-    <view class="list"> <view class="index">1</view> 行驶证</view>
-    <view class="list"> <view class="index">2</view> 身份证</view>
-    <view class="list"> <view class="index">3</view> 车辆登记证</view>
+    <view class="title">
+        <image src="../../../image/idcard.png"></image> <text>证件准备</text></view>
+    <view class="list">
+        <view class="index">1</view> 行驶证</view>
+    <view class="list">
+        <view class="index">2</view> 身份证</view>
+    <view class="list">
+        <view class="index">3</view> 车辆登记证</view>
 </view>
 <!-- 提示 -->
 <view class="warming">
-<view >验车当天，评估师要核实以上证件哦</view>
-<view >证件信息仅用于确认，不会对外展示</view>
-<view >咨询电话： <text class="num">400000000</text></view>
+    <view>验车当天，评估师要核实以上证件哦</view>
+    <view>证件信息仅用于确认，不会对外展示</view>
+    <view>咨询电话： <text class="num">400000000</text></view>
 </view>
-
-

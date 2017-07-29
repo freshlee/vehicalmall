@@ -1,9 +1,8 @@
 /* index.wxss */
 /* 列表样式 */
 .lists{
-    padding: 0 31rpx;
+    padding:0 31rpx;
     background: white;
-    margin-top: 18rpx;
 }
 .lists .li{
     border-bottom: 4rpx solid #f4f4f4;
@@ -31,9 +30,8 @@
     position: relative;
 }
 .lists .rec_name .carname{
-    line-height: 30rpx;
-    height: 60rpx;
-    font-size: 25rpx;
+    line-height: 40rpx;
+    height: 80rpx;
    display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -48,8 +46,18 @@
 .lists .rec_name .price{
     position: absolute;
     bottom: 0;
-    color: rgba(250, 128, 10, 1);
+    color: #FA800a;
 } 
+.lists .rec_name .price view{
+    display: inline-block;
+    color: #FA800a;
+    font-size: 35rpx;
+    width: 200rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: normal;
+}
 .lists .rec_name .price text{
     color: dimgray;
     font-size: 25rpx;
@@ -59,7 +67,16 @@
     text-decoration: line-through;
 }
 .lists .rec_name .price .newprice{
-    width: 290rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 200rpx;
     display: inline-block;
     text-align: right;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}
+

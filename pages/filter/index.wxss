@@ -1,9 +1,11 @@
 /* 工具栏 */
-.toolbar{
+
+.toolbar {
     z-index: 99;
     padding: 10rpx 30rpx;
     border-bottom: 4rpx solid #f4f4f4;
 }
+
 .toolbar>view {
     display: inline-block;
     width: 25%;
@@ -45,11 +47,13 @@
     position: relative;
     top: -3rpx;
 }
-#addseries{
+
+#addseries {
     background: none;
-    color: dimgray
+    color: dimgray;
 }
-#addseries image{
+
+#addseries image {
     width: 30rpx;
     height: 30rpx;
 }
@@ -94,19 +98,32 @@
 
 .info .detail {
     color: dimgray;
-    font-size: 28rpx;
+    font-size: 25rpx;
     line-height: 60rpx;
     height: 60rpx;
+}
+
+.info .title {
+    font-size: 30rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .info .price {
     position: absolute;
     bottom: 0;
-    color: orangered;
+    color: #fa800a;
+}
+
+.info .price>view {
+    font-size: 28rpx;
+    line-height: 40rpx;
 }
 
 .info .price text {
-    font-size: 28rpx;
+    font-size: 25rpx;
     color: dimgray;
 }
 
@@ -115,8 +132,10 @@
 }
 
 /* ----------------------品牌筛选页面------------------------ */
+
 /* 假头部 */
-.fakehead{
+
+.fakehead {
     background: #f4f4f4;
     width: 100%;
     box-sizing: border-box;
@@ -126,7 +145,8 @@
     text-indent: -2em;
     z-index: 99;
 }
-.fakehead image{
+
+.fakehead image {
     position: relative;
     top: 20rpx;
     height: 60rpx;
@@ -135,323 +155,401 @@
     vertical-align: middle;
     float: left;
 }
+
 /* 主页面 */
-.brand{
+
+.brand {
     background: #f4f4f4;
     position: fixed;
     top: 0;
     left: 0;
 }
+
 /* 热门品牌 */
-.popular{
+
+.popular {
     background: white;
 }
-.popular .casetitle{
+
+.popular .casetitle {
     padding: 20rpx 30rpx;
     color: black;
 }
-.popular .popularcase{
+
+.popular .popularcase {
     display: inline-block;
     width: 20%;
     text-align: center;
 }
-.popularcase image{
-    width:80rpx;
+
+.popularcase image {
+    width: 80rpx;
     height: 80rpx;
 }
-.popularcase .polularname{
+
+.popularcase .polularname {
     font-size: 30rpx;
     color: dimgray;
 }
-/* 品牌列表 */
-.listbox{
 
+/* 品牌列表 */
+
+.listbox {
 }
-.listbox .brandlist_title{
+
+.listbox .brandlist_title {
     padding: 0 30rpx;
 }
-.listbox .brandlist{
+
+.listbox .brandlist {
     background: white;
     padding: 30rpx;
     height: 60rpx;
     line-height: 60rpx;
     border-bottom: 2rpx solid #f4f4f4;
 }
-.listbox:last-of-type{
+
+.listbox:last-of-type {
     margin-bottom: 250rpx;
 }
-.listbox .brandlist image{
-   width: 60rpx;
-   height: 60rpx;
-   vertical-align: top;
+
+.listbox .brandlist image {
+    width: 60rpx;
+    height: 60rpx;
+    vertical-align: top;
 }
-.listbox .brandlist .brandname{
-   vertical-align: top;
-   margin-left: 20rpx;
+
+.listbox .brandlist .brandname {
+    vertical-align: top;
+    margin-left: 20rpx;
 }
+
 /* 右侧字母导航栏 */
-.anchor{
+
+.anchor {
     width: 100rpx;
     position: fixed;
     top: 0;
     right: 0;
-    padding-top:100rpx; 
+    padding-top: 100rpx;
     z-index: 99;
 }
-.anchor>view{
+
+.anchor>view {
     text-align: center;
     color: green;
     font-size: 30rpx;
-    height: 40rpx;
+    height: 37rpx;
 }
+
 /* 副品牌筛选 */
-.subbrand{
+
+.subbrand {
     background: white;
     position: fixed;
     top: 0;
     right: 0;
 }
-.mainlogo{
+
+.mainlogo {
     padding: 30rpx;
 }
-.mainlogo image{
+
+.mainlogo image {
     width: 80rpx;
-    height: 80rpx
+    height: 80rpx;
 }
-.subbrand_title{
+
+.subbrand_title {
     padding: 20rpx 30rpx;
     background: #f4f4f4;
     font-size: 28rpx;
 }
-.series{
-    border-top:4rpx solid #f4f4f4;
-    padding:30rpx; 
+
+.series {
+    border-top: 4rpx solid #f4f4f4;
+    padding: 30rpx;
 }
-.series>view{
+
+.series>view {
     display: inline-block;
     height: 80rpx;
     line-height: 80rpx;
     vertical-align: top;
 }
-.series .series_name{
+
+.series .series_name {
     margin-left: 30rpx;
     width: 280rpx;
     overflow: hidden;
 }
-.series>view image{
+
+.series>view image {
     display: inline-block;
     width: 80rpx;
     height: 80rpx;
 }
+
 /* 切换样式 */
-.brandon{
-    display:block; 
+
+.brandon {
+    display: block;
 }
-.brandoff{
+
+.brandoff {
     display: none;
 }
-.subbrandon{
-    display:block; 
+
+.subbrandon {
+    display: block;
     transform: translateX(0);
-    transition-property:transform; 
+    transition-property: transform;
     transition-duration: 0.5s;
 }
-.subbrandoff{
+
+.subbrandoff {
     transform: translateX(500rpx);
-    transition-property:transform; 
+    transition-property: transform;
     transition-duration: 0.5s;
 }
-.filteron{
+
+.filteron {
     display: block;
 }
-.filteroff{
+
+.filteroff {
     display: none;
 }
-.choseoption{
-    border: 2rpx solid rgb(190,200,190)!important;
-    background:rgb(238,254,243);
-    color:rgb(29,164,60)!important;
+
+.choseoption {
+    border: 2rpx solid rgb(190, 200, 190) !important;
+    background: rgb(238, 254, 243);
+    color: rgb(29, 164, 60) !important;
 }
-.pricefilteron{
+
+.pricefilteron {
     display: block;
 }
-.pricefilteroff{
+
+.pricefilteroff {
     display: none;
 }
-.orderon{
+
+.orderon {
     display: block;
 }
-.orderoff{
+
+.orderoff {
     display: none;
 }
-.orderoptionon{
-    color:rgb(29,164,60); 
+
+.orderoptionon {
+    color: rgb(29, 164, 60);
 }
-.orderoptionoff{
+
+.orderoptionoff {
     color: #454545;
 }
 
 /* 高级筛选页面 */
-.filter{
+
+.filter {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     background: white;
 }
-.options:last-of-type{
-   margin-bottom: 250rpx;
+
+.options:last-of-type {
+    margin-bottom: 600rpx;
 }
+
 /*车型*/
-.version{
+
+.version {
     background: white;
     padding: 30rpx 0;
-    border-bottom:4rpx solid #f4f4f4; 
+    border-bottom: 4rpx solid #f4f4f4;
 }
-.version .casetitle{
+
+.version .casetitle {
     padding: 20rpx 30rpx;
     color: black;
 }
-.version .versioncase{
+
+.version .versioncase {
     display: inline-block;
     width: 33.3%;
     text-align: center;
     vertical-align: top;
     margin-top: 50rpx;
 }
-.versioncase image{
-    width:150rpx;
+
+.versioncase image {
+    width: 150rpx;
     height: 60rpx;
 }
-.versioncase .versionname{
+
+.versioncase .versionname {
     font-size: 30rpx;
     color: dimgray;
 }
+
 /* 车牌选项 */
-.options{
+
+.options {
     background: white;
-    padding: 30rpx 0;
-    border-bottom:4rpx solid #f4f4f4; 
+    padding: 30rpx 0 30rpx;
+    border-bottom: 4rpx solid #f4f4f4;
 }
-.options .casetitle{
+
+.options .casetitle {
     padding: 20rpx 30rpx;
     color: black;
 }
-.options .optionscase{
+
+.options .optionscase {
     display: inline-block;
     width: 33.3%;
     text-align: center;
     vertical-align: top;
-    margin-top: 50rpx;
+    margin: 25rpx 0 25rpx;
     padding: 0 30rpx;
     box-sizing: border-box;
     height: 60rpx;
     line-height: 60rpx;
 }
-.optionscase image{
-    width:150rpx;
+
+.optionscase image {
+    width: 150rpx;
     height: 60rpx;
 }
-.optionscase .optionsname{
+
+.optionscase .optionsname {
     font-size: 30rpx;
     color: dimgray;
     border: 2rpx solid dimgray;
-    border-radius: 5rpx; 
+    border-radius: 5rpx;
     height: 60rpx;
     overflow: hidden;
 }
+
 /* 控件 */
-.selector{
+
+.selector {
     background: white;
     padding: 30rpx 0;
-    border-bottom:4rpx solid #f4f4f4; 
+    border-bottom: 4rpx solid #f4f4f4;
 }
-.selector .casetitle{
+
+.selector .casetitle {
     padding: 20rpx 30rpx;
     color: black;
 }
 
-.selector slider{
+.selector slider {
     position: relative;
 }
-.selector slider:last-child{
+
+.selector slider:last-child {
     transform: translateY(-55rpx);
 }
-.parameter{
+
+.parameter {
     transform: translateY(-55rpx);
 }
-.parameter>view{
+
+.parameter>view {
     display: inline-block;
     width: 20%;
     text-align: center;
 }
+
 /*控件2*/
-.parameter2{
+
+.parameter2 {
     transform: translateY(-55rpx);
 }
-.parameter2>view{
+
+.parameter2>view {
     display: inline-block;
     width: 16.66%;
     text-align: center;
 }
+
 /* 控件3 */
-.parameter3{
+
+.parameter3 {
     transform: translateY(-55rpx);
 }
-.parameter3>view{
+
+.parameter3>view {
     display: inline-block;
     width: 16.66%;
     text-align: center;
 }
+
 /*颜色*/
-.optionsname .colorball{
+
+.optionsname .colorball {
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
     width: 40rpx;
     height: 40rpx;
-    border:1rpx solid #454545;
+    border: 1rpx solid #454545;
 }
 
 /* 价格选项 */
-.pricefilter{
+
+.pricefilter {
     position: fixed;
-    background: rgba(0,0,0,0.2);
-    width:100%;
-    top:80rpx;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    top: 80rpx;
     left: 0;
 }
+
 /* 智能排序 */
-.order{
+
+.order {
     position: fixed;
-    background: rgba(0,0,0,0.2);
-    width:100%;
-    top:80rpx;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    top: 80rpx;
     left: 0;
 }
-.orderbox{
-    padding-left:30rpx; 
+
+.orderbox {
+    padding-left: 30rpx;
     box-sizing: border-box;
     background: white;
 }
-.order .list{
+
+.order .list {
     height: 108rpx;
     line-height: 108rpx;
     border-bottom: 2rpx solid #f4f4f4;
 }
-.order .list image{
-    width:35rpx;
+
+.order .list image {
+    width: 35rpx;
     height: 35rpx;
     position: relative;
     top: 5rpx;
 }
-.order .list .last{
+
+.order .list .last {
     float: right;
     margin-right: 40rpx;
-    margin-top:25rpx;
-    width:35rpx;
+    margin-top: 25rpx;
+    width: 35rpx;
     height: 40rpx;
 }
 
-
-
+#copyright {
+    text-align: center;
+    margin: 10rpx 0;
+    font-size: 25rpx;
+}

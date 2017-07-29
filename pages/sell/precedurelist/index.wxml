@@ -1,0 +1,9 @@
+
+<view class="list" wx:for="{{list}}" bindtap="jump" data-id="{{item.id}}">
+<view class="left">
+<view class="up">索引编号:{{item.randoms}}</view>
+<view class="down">{{item.date}}提交</view>
+</view>
+<view class="right">{{item.statusname}}</view>
+</view>
+ <view id="copyright">{{versioninfo}}</view> 

@@ -6,29 +6,45 @@
     </view>
 </view>
 <view class="nav">
-    <view>
-      <view class="pic"> <image src="../../../image/predate.png"></image> </view>
-      <view class="name"> 预约记录</view>
+    <view bindtap="jump" data-page="../appointment/index">
+        <view class="pic">
+            <image src="../../../image/predate.png"></image>
+        </view>
+        <view class="name"> 预约记录</view>
     </view>
-    <view>
-      <view class="pic"> <image src="../../../image/history.png"></image> </view>
-      <view class="name"> 浏览历史</view>
+    <view bindtap="jump" data-page="../record/index">
+        <view class="pic">
+            <image src="../../../image/history.png"></image>
+        </view>
+        <view class="name"> 浏览历史</view>
     </view>
-    <view>
-      <view class="pic"> <image src="../../../image/collect.png"></image> </view>
-      <view class="name"> 收藏记录</view>
+    <view bindtap="jump" data-page="../collect/index">
+        <view class="pic">
+            <image src="../../../image/collect.png"></image>
+        </view>
+        <view class="name"> 收藏记录</view>
     </view>
-    <view>
-      <view class="pic"> <image src="../../../image/subscription.png"></image> </view>
-      <view class="name"> 订阅车源</view>
-    </view>
+    <!-- <view>
+        <view class="pic">
+            <image src="../../../image/subscription.png"></image>
+        </view>
+        <view class="name"> 订阅车源</view>
+    </view> -->
 </view>
 <view class="case">
-<view class="list"> <image class="logo" src="../../../image/procedurelogo.png"></image> 卖车进度</view>
+    <view class="list" bindtap="jump" data-page="../../sell/precedurelist/index">
+        <image class="logo" src="../../../image/procedurelogo.png"></image> 卖车进度</view>
 </view>
 
 <view class="case">
-<view class="list"> <image class="logo" src="../../../image/voucher.png"></image> 我的优惠券</view>
-<view class="list"> <image class="logo" src="../../../image/service.png"></image> 联系客服</view>
-<view class="list"> <image class="logo" src="../../../image/advice.png"></image> 意见反馈</view>
+    <!-- <view class="list" bindtap="jump" data-page="../coupon/index">
+        <image class="logo" src="../../../image/voucher.png"></image> 我的优惠券</view> -->
+        <label for="server"> 
+            <view class="list">
+                <image class="logo" src="../../../image/service.png"></image> 联系客服</view>
+        </label>
+    <button id="server" bindtap="contact" style="display:none" open-type="contact"></button>
+    <view class="list" bindtap="jump" data-page="../advice/index">
+        <image class="logo" src="../../../image/advice.png"></image> 意见反馈</view>
 </view>
+<view id="copyright">{{versioninfo}}</view>

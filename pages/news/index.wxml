@@ -1,2 +1,29 @@
 <!--index.wxml-->
-<text>index.wxml</text>
+<view class="nav">
+    <view class="{{myindex==0?'bechosen':''}}" bindtap="all">全部</view>
+    <view class="{{myindex==1?'bechosen':''}}" bindtap="before">有车前</view>
+    <view class="{{myindex==2?'bechosen':''}}" bindtap="after">有车后</view>
+
+</view>
+<scroll-view scroll-y style="height:{{myheight-155}}px">
+
+<!-- <view class="cases">
+<view class="list" wx:for="{{4}}">
+<view class="title">文章题目</view>
+<view class="content">只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行只能显示3行</view>
+</view>
+</view> -->
+
+<view class="articlebox" wx:for="{{listnow}}" bindtap="jump" data-id="{{item.id}}">
+<view class="info">
+<view class="up">{{item.title}}</view>
+<view class="lower">{{item.createtime}}发布</view>
+</view>
+<view class="pic"> <image src="{{item.thumb}}"></image> </view>
+</view>
+
+
+</scroll-view>
+
+
+<view id="copyright">{{versioninfo}}</view>

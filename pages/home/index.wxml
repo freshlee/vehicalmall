@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="banner">
-    <swiper style="height:397rpx" wx:for="{{1}}">
+    <swiper style="height:397rpx">
         <block>
-            <swiper-item>
-                <image src="../../image/banner.jpg"></image>
+            <swiper-item wx:for="{{home.adv}}" data-page="{{item.url}}" bindtap="jump">
+                <image src="{{item.thumb}}"></image>
             </swiper-item>
         </block>
     </swiper>
@@ -11,49 +11,49 @@
 
 <!-- 导航 -->
 <view class="nav">
-    <view wx:for="{{home.nav}}">
+    <view wx:for="{{home.navss}}" data-page="{{item.url}}" bindtap="jump">
         <view class="nav_pic">
-            <image src="{{item.thumb}}"></image>
+            <image src="{{item.icon}}"></image>
         </view>
-        <view class="nav_name">{{item.advname}}</view>
+        <view class="nav_name">{{item.navssname}}</view>
     </view>
 </view>
 
 <!-- 选项 -->
 <view class="options">
     <view class="cases">
-        <view wx:for="{{4}}">五万以上</view>
+        <view wx:for="{{firstrow}}" bindtap="tofilterfirst" data-id="{{item.id}}">{{item.name}}</view>
     </view>
     <view class="cases">
-        <view wx:for="{{4}}">SUV</view>
+        <view wx:for="{{secondrow}}" bindtap="tofiltersecond" data-id="{{item.id}}">{{item.name}}</view>
     </view>
     <view class="logo">
-        <view wx:for="{{8}}">
+        <view wx:for="{{home.nav}}" bindtap="tofilterbrand" data-id="{{item.id}}">
             <view class="logo_pic">
-                <image src="../../image/logo.jpg"></image>
+                <image src="{{item.icon}}"></image>
             </view>
-            <view class="logo_name">大众</view>
+            <view class="logo_name">{{item.navname}}</view>
         </view>
     </view>
 </view>
 
 <!-- 资讯 -->
 <view class="article">
-    <view class="title">新闻资讯</view>
-    <view class="list" wx:for="{{home.notice}}">{{item.title}}<text class="num">{{item.number}}阅读</text> </view>
+    <view class="title" bindtap="tonews">新闻资讯</view>
+    <view class="list" wx:for="{{home.notice}}" bindtap="jumptoarticle" data-id="{{item.id}}">{{item.title}}<text class="num">{{item.number}}阅读</text> </view>
 </view>
 
 <!-- 好车推荐 -->
 <view class="recommend">
     <view class="title">好车推荐</view>
-    <view class="li" wx:for="{{3}}">
+    <view class="li" wx:for="{{home.goods_list}}" bindtap="jumptodetail" data-id="{{item.id}}">
         <view class="rec_pic">
-            <image src="../../image/car_home.jpg"></image>
+            <image src="{{item.thumb}}"></image>
         </view>
         <view class="rec_name">
-            <view class="carname">BMW 1系运动轿车,型格由我定义,速度由我掌控,我型我速,玩转世界</view>
-            <view class="info">2015/2.1万公里</view>
-            <view class="price">6.60万 <text>新车价 <text>10.83万</text></text>
+            <view class="carname">{{item.title}}</view>
+            <view class="info">{{item.carage}}年/{{item.mileafge}}万公里</view>
+            <view class="price">{{item.marketprice}}万 <text>新车价 <text>{{item.minprice}}万</text></text>
             </view>
         </view>
     </view>
@@ -61,48 +61,65 @@
 
 <!-- 搜索框 -->
 <view class="toolbar">
-    <view class="city" bindtap="city"> <text>{{cityname}}</text><image src="../../image/arrow.png"></image>
+    <view class="city" bindtap="city"> <text>{{cityname}}</text>
+        <image src="../../image/arrow.png"></image>
     </view>
     <view class="search" bindtap="search" bindtap="search">
         <image src="../../image/search.png"></image>搜索</view>
 </view>
 <!-- 搜索页面 -->
 <view class="searchpage {{searchstatus?'searchon':'searchoff'}}" style="height:{{myheight}}px">
-    <view class="box">
-        <view class="back" bindtap="search">
-            <image src="../../image/arrow.png"></image>
+    <form bindsubmit="dosearch">
+        <view class="box">
+            <view class="back" bindtap="search">
+                <image src="../../image/arrow.png"></image>
+            </view>
+            <view class="input">
+                <image src="../../image/search.png"></image> <input name="tilte" /> </view>
+            <label for="submit"><text>搜索</text></label>
+            <button form-type="submit" id="submit" style="display:none"></button>
         </view>
-        <view class="input">
-            <image src="../../image/search.png"></image> <input /> </view>
-        <text>搜索</text>
+    </form>
+    <view class="recommend">
+        <view class="li" wx:for="{{searchlist}}" bindtap="jumptodetail" data-id="{{item.id}}">
+            <view class="rec_pic">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="rec_name">
+                <view class="carname">{{item.title}}</view>
+                <view class="info">{{item.carage}}年/{{item.mileafge}}万公里</view>
+                <view class="price">{{item.marketprice}}万 <text>新车价 <text>{{item.minprice}}万</text></text>
+                </view>
+            </view>
+        </view>
     </view>
 </view>
 
 <!-- 城市页面 -->
 <view class="citypage {{citystatus?'cityon':'cityoff'}}" style="height:{{myheight}}px">
-<scroll-view scroll-with-animation scroll-y style="height:{{myheight-60}}px" scroll-into-view="{{view}}">
-<!-- 假头部 -->
-    <view class="header">
-        <view class="back" bindtap="city">
-            <image src="../../image/arrow.png"></image>
+    <scroll-view scroll-with-animation scroll-y style="height:{{myheight-60}}px" scroll-into-view="{{view}}">
+        <!-- 假头部 -->
+        <view class="header">
+            <view class="back" bindtap="city">
+                <image src="../../image/arrow.png"></image>
+            </view>
+            <view class="input">
+                选择城市 </view>
         </view>
-        <view class="input">
-            选择城市 </view>
-    </view>
-    <view class="citynow">
-        <view class="title">当前城市</view>
-    <view class="citycase">{{cityname}}</view>
-    </view>
-    <view class="citylist" id="all">
-        <view class="title">全</view>
-        <view class="citycase">全部城市</view>
-    </view>
-    <!-- 城市列表 -->
-    <view class="citylist" wx:for="{{listbox}}" id="{{item.name}}">
-        <view class="title">{{item.name}}</view>
-        <view class="citycase" wx:for="{{item.lists}}" bindtap="chosecity" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</view>
-    </view>
-</scroll-view>
+        <view class="citynow">
+            <view class="title">当前城市</view>
+            <view class="citycase">{{cityname}}</view>
+        </view>
+        <view class="citylist" id="all">
+            <view class="title">全</view>
+            <view class="citycase">全部城市</view>
+        </view>
+        <!-- 城市列表 -->
+        <view class="citylist" wx:for="{{listbox}}" id="{{item.name}}">
+            <view class="title">{{item.name}}</view>
+            <view class="citycase" wx:for="{{item.lists}}" bindtap="chosecity" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</view>
+        </view>
+    </scroll-view>
     <!-- 右侧导航栏 -->
     <view class="anchor">
         <view data-index="all" bindtap="toscroll">#</view>
@@ -110,3 +127,5 @@
 
     </view>
 </view>
+
+ <view id="copyright">{{versioninfo}}</view> 

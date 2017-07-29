@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="header">
-    <view> <text class="tag">车辆名称：</text>现代名图 2014款 1.8L 自动智能型</view>
-    <view> <text class="tag">价钱：</text>7.32万</view>
+    <view> <text class="tag">车辆名称：</text>{{detail.goods.title}}</view>
+    <view> <text class="tag">价钱：</text>{{detail.goods.marketprice}}万</view>
 </view>
 
 <view class="contain">
@@ -10,7 +10,7 @@
     <image src="../../../image/arrowon.png" class="{{cases[1]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[1]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
+    <view class="list" wx:for="{{detail.accs}}">{{index}}.{{item.name}}
         <image src="../../../image/tickeron.png"></image>
     </view>
 </view>
@@ -19,11 +19,11 @@
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="2">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 安全检测
     <image src="../../../image/arrowon.png" class="{{cases[2]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[2]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
+    <view class="list" wx:for="{{detail.safes}}">{{index}}.{{item.name}}
         <image src="../../../image/tickeron.png"></image>
     </view>
 </view>
@@ -31,11 +31,11 @@
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="3">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 驾驶检测
     <image src="../../../image/arrowon.png" class="{{cases[3]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[3]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
+    <view class="list" wx:for="{{detail.sdriveidss}}">{{index}}.{{item.name}}
         <image src="../../../image/tickeron.png"></image>
     </view>
 </view>
@@ -43,12 +43,14 @@
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="4">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 外观检测
     <image src="../../../image/arrowon.png" class="{{cases[4]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[4]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
+    <view class="list" wx:for="{{detail.interioridss}}">{{index}}.{{item.name}}
         <image src="../../../image/tickeron.png"></image>
     </view>
 </view>
 </view>
+
+ <view id="copyright">{{versioninfo}}</view> 

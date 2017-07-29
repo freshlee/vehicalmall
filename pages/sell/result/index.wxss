@@ -124,3 +124,8 @@ page{
 .dealtime{
     float: right;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}

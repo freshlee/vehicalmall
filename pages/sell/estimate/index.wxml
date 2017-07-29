@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<form bindsubmit="submit">
 <view class="case">
     <view class="list" bindtap="city">
         {{cityname}}
@@ -7,12 +8,12 @@
         </view>
     </view>
     <view class="list" bindtap="brand">
-        车系
+        {{seriesname?seriesname:'品牌车系'}}
         <view class="rightside">
             <image src="../../../image/arrow.png"></image>
         </view>
     </view>
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <picker mode="date" name="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
         <view class="list">
             {{date?date:'上牌时间'}}
             <view class="rightside">
@@ -22,11 +23,11 @@
     </picker>
     <view class="list">
         请输入行驶里程
-        <view class="rightside"> <input placeholder="请填写里程数" style="z-index:0;position:relative" :/><text>万公里</text> </view>
+        <view class="rightside"> <input name="mile" bindinput="mile" placeholder="请填写里程数" style="z-index:0;position:relative" :/><text>万公里</text> </view>
     </view>
     <view class="list">
         接收手机号
-        <view class="rightside"> <input placeholder="11位手机号" style="z-index:0;position:relative" :/> </view>
+        <view class="rightside"> <input name="mobile" bindinput="phone" placeholder="11位手机号" style="z-index:0;position:relative" :/> </view>
     </view>
     <picker mode="selector" bindchange="bindrChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{tips}}">
         <view class="list">
@@ -38,33 +39,40 @@
     </picker>
 </view>
 
-<button class="go">开始估价</button>
+<button class="go" form-type="submit">开始估价</button>
+</form>
 
 
 <!-- 品牌筛选主页面 -->
-<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px">
+<view class="brand {{brandstatus?'brandon':'brandoff'}}" style="height:{{myheight}}px;z-index:99;width:100%">
     <view class="fakehead">
         <image bindtap="brand" src="../../../image/arrow.png"></image> 品牌选择</view>
-    <scroll-view bindscroll="subbrandclose" scroll-with-animation scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px">
+    <scroll-view bindscroll="subbrandclose" scroll-with-animation scroll-into-view="{{view}}" scroll-y="true" style="height:{{myheight}}px;width:100%">
         <!-- 最热品牌 -->
-        <view class="popular">
-            <view class="casetitle">热门品牌</view>
+        <!-- <view class="popular">
+            <view class="casetitle">热门品牌</view> -->
             <!-- 单个热门品牌 -->
-            <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
+            <!-- <view class="popularcase" wx:for="{{10}}" bindtap="subbrand">
                 <view class="pic">
-                    <image src="../../../image/Benz.png"></image>
+                    <image src="../../image/Benz.png"></image>
                 </view>
-                <view class="polularname">奔驰</view>
-            </view>
+                <view class="polularname">奔驰</view> -->
+            <!-- </view> -->
             <!-- 单个热门品牌 -->
-        </view>
+        <!-- </view> -->
 
         <!-- 品牌列表 -->
+        <!-- <view class="listbox" id="all">
+            <view class="brandlist_title">#</view>
+            <view class="brandlist">
+                <text class="brandname">不限品牌</text>
+            </view>
+        </view> -->
         <view class="listbox" wx:for="{{listbox}}" id="{{item.name}}">
             <view class="brandlist_title">{{item.name}}</view>
-            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.series}}" data-cateid="{{item.id}}" data-catename="{{item.catename}}">
-                <image class="brandlogo" src="../../../image/Benz.png"></image>
-                <text class="brandname">{{item.catename}}</text>
+            <view class="brandlist" wx:for="{{item.lists}}" bindtap="subbrand" data-serieslist="{{item.tree.nodes}}" data-cateid="{{item.id}}" data-catename="{{item.tree.name}}">
+                <image class="brandlogo" src="{{item.tree.advimg}}"></image>
+                <text class="brandname">{{item.tree.name}}</text>
             </view>
         </view>
     </scroll-view>
@@ -78,30 +86,18 @@
     <!-- 副品牌筛选页面 -->
     <view class="subbrand {{subbrandstatus&&serieslist?'subbrandon':'subbrandoff'}}" style="height:{{myheight}}px;width:500rpx;">
         <view class="mainlogo">
-            {{catename}}
+            <image src="{{serieslogo}}"></image>
         </view>
         <view class="subbrand_title">选择车系
         </view>
-        <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-list="{{item.list}}" data-id="{{item.id}}" data-name="{{item.name}}">
-            <view class="series_pic">
-                <image src="../../../image/jeep.jpg"></image>
+        <scroll-view scroll-y style="height:1000rpx;">
+            <view class="series" wx:for="{{serieslist}}" bindtap="choseseries" data-id="{{item.id}}" data-name="{{item.name}}">
+                <view class="series_pic">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view class="series_name">{{item.name}}</view>
             </view>
-            <view class="series_name">{{item.name}}</view>
-        </view>
-    </view>
-    <!-- 年份牌筛选页面 -->
-    <view class="time {{timestatus&&seriesid?'timeon':'timeoff'}}" style="height:{{myheight}}px;width:500rpx;">
-        <view class="mainlogo">
-            {{catename}}
-        </view>
-        <view class="time_title">年份
-        </view>
-        <view class="series" wx:for="{{timelist}}" bindtap="chosetime" data-list="{{item.list}}" data-id="{{item.id}}" data-name="{{item.name}}">
-            <view class="series_pic">
-                <image src="../../../image/jeep.jpg"></image>
-            </view>
-            <view class="series_name">{{item.name}}</view>
-        </view>
+        </scroll-view>
     </view>
 </view>
 <!-- 城市页面 -->
@@ -124,7 +120,7 @@
         <view class="citycase">全部城市</view>
     </view>
     <!-- 城市列表 -->
-    <view class="citylist" wx:for="{{listbox}}" id="{{item.name}}">
+    <view class="citylist" wx:for="{{citybox}}" id="{{item.name}}">
         <view class="title">{{item.name}}</view>
         <view class="citycase" wx:for="{{item.lists}}" bindtap="chosecity" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</view>
     </view>
@@ -136,3 +132,4 @@
 
     </view>
 </view>
+ <view id="copyright">{{versioninfo}}</view> 

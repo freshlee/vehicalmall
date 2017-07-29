@@ -12,10 +12,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var THIS = this;
       this.setData({
-          status:3,
+          versioninfo: getApp().globalData.version,
       })
+      var id =options.id;
+      wx.request({
+          url: getApp().globalData.serverName,
+          data: {
+              a: "me",
+              op: "selllist",
+              openid: getApp().globalData.openid,
+          },
+          success:function(res){
+              var list = res.data.dat.sell;
+              for(var key in list){
+                   list[key].id=id
+                   THIS.setData({
+                       status: list[key].status,
+                   })
+              }
+          },
+      })
+      var THIS = this;
+    //   this.setData({
+    //       status:2,
+    //   })
       //   获取频幕宽度
       wx.getSystemInfo({
           success: function (res) {
@@ -62,7 +83,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
   },
 
   /**

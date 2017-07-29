@@ -1,0 +1,59 @@
+/* index.wxss */
+page{
+    background: #f4f4f4;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.inputbox{
+    padding: 30rpx 0;
+}
+.inputbox>view{
+    display: inline-block;
+    line-height: 100rpx;
+    height: 100rpx;
+    vertical-align: top;
+}
+.inputbox>view:first-of-type{
+    width: 515rpx;
+    background: white;
+}
+.inputbox>view:last-of-type{
+    line-height: 100rpx;
+    width: 175rpx;
+    text-align: center;
+    background: #dcdcdc;
+    font-size: 35rpx;
+}
+.coupon{
+    padding: 65rpx 30rpx 80rpx;
+    background: white;
+    position: relative;
+    box-shadow: 0 2rpx 5rpx 1rpx #bfbfbf;
+    border-radius: 5rpx;
+}
+.coupon>view{
+    display: inline-block;
+    vertical-align: top;
+}
+.coupon .left .name{
+    line-height: 70rpx;
+    height: 70rpx;
+}
+.coupon .left  .date{
+    color: #adadad;
+    font-size: 25rpx;
+}
+.coupon .right{
+    color: #FA800a;
+    font-size: 80rpx;
+    position: absolute;
+    top: 40rpx;
+    right: 30rpx;
+}
+.more{
+    font-size: 25rpx;
+    position:absolute;
+    right:30rpx;
+    bottom:30rpx;
+    color: #adadad;
+}

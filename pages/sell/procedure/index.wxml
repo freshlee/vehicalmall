@@ -31,4 +31,9 @@
 </view>
 </view>
 
- <canvas canvas-id="bar" style="position:absolute;top:60rpx;left:175rpx;height:800rpx;width:750rpx;transform: scaleY({{times}});transform-origin:0 0;" />
+ <view  class="linebox">
+ <view class="line {{status>=2?'reach':'coming'}}"></view>
+  <view class="line {{status>=3?'reach':'coming'}}"></view>
+   <view class="line {{status>=4?'reach':'coming'}}"></view>
+ </view>
+  <view id="copyright">{{versioninfo}}</view> 

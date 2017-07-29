@@ -1,9 +1,4 @@
 // index.js
-var orgY;
-var orgtop;
-var who = [];
-var openid = getApp().globalData.openid;
-var final = [];
 Page({
 
     /**
@@ -19,29 +14,40 @@ Page({
      * 生命周期函数--监听页面加载
      */
     jump: function (e) {
-        var id = e.currentTarget.dataset.index;
-        //获取商品具体信息
-        wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=create&uniacid=' + getApp().globalData.acid + '&goodsid=' + id + "&openid=" + getApp().globalData.openid,
-            success: function (res) {
-                console.log(res);
-                var doctype = res.data.dat.goods.type;
-                var typename;
-                console.log(doctype)
-                switch (doctype) {
-                    case "1": typename = "video";
-                    case "2": typename = "course";
-                    case "3": typename = "article";
-                }
-                wx.navigateTo({
-                    url: '../' + typename + "/index?id=" + id,
-                })
-            }
-        })
+
     },
     onLoad: function (options) {
         this.setData({
             versioninfo: getApp().globalData.version,
+        })
+        var THIS=this;
+        this.setData({
+            versioninfo: getApp().globalData.version,
+        })
+        wx.request({
+            url: getApp().globalData.serverName,
+            data:{
+                op:"gzlist",
+                a:"me",
+                openid: getApp().globalData.openid,
+            },
+            success:function(res){
+                var data=res.data.dat.list;
+                var onsale=[];
+                var oversale=[];
+                for(var key in data){
+                    if(data[key].ok==1){
+                       oversale.push(data[key]);
+                    }
+                    else{
+                        onsale.push(data[key]);
+                    }
+                }
+                  THIS.setData({
+                      onsale:onsale,
+                      oversale:oversale,
+                  })
+            }
         })
     },
 
@@ -93,28 +99,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        var THIS = this;
-        wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
-            success: function (res) {
-                console.log(res);
-                THIS.setData({
-                    collection: res.data.dat.list,
-                })
-            }
-        })
-        //已经购买课程
-        wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=list&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid,
-            success: function (res) {
-                var data = res.data.dat;
-                console.log(res);
-                var finishlist = data.order_list3;
-                THIS.setData({
-                    finishlist: finishlist,
-                })
-            }
-        })
+
     },
 
     /**

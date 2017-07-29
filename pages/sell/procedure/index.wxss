@@ -44,3 +44,22 @@
 .chosen+view view{
     color: rgba(250, 128, 10, 1)!important;
 }
+/* 线框 */
+.linebox{
+    position: absolute;
+    top: 60rpx;
+    left: 175rpx;
+}
+.linebox .reach{
+    border:2rpx solid rgba(250, 128, 10, 1);
+    height: 225rpx;
+}
+.linebox .coming{
+    height: 225rpx;
+    border:2rpx solid #454545;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
+}

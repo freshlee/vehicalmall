@@ -57,6 +57,13 @@
     height: 110rpx;
     line-height: 110rpx;
 }
+.go{
+    margin-top: 200rpx;
+    background: rgba(250, 128, 10,1);
+    color: white;
+    border-radius: 0;
+    width: 90%;
+}
 /* 车牌选项 */
 .options{
     background: white;
@@ -127,7 +134,11 @@
 }
 /* 样式切换 */
 .choseoption{
-    background: orangered;
+    background: #FA800a;
     color: white !important;
     border: none !important;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }

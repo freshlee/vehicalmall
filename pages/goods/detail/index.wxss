@@ -16,6 +16,7 @@ page>view{
     padding-left:30rpx;
     box-sizing: border-box; 
     padding-bottom: 32rpx;
+    box-sizing: border-box;
 }
 .info .title{
     height: 100rpx;
@@ -23,7 +24,7 @@ page>view{
     font-weight: bold;
 }
 .price{
-    color: orangered;
+    color: #FA800a;
 }
 .price .standard{
     font-size: 25rpx;
@@ -57,6 +58,7 @@ page>view{
 .logo_cell{
 width: 25%;
 display: inline-block;
+vertical-align: top;
 }
 .logo_cell>view{
 text-align: center;
@@ -247,10 +249,23 @@ text-align: center;
     height: 97rpx;
     position: fixed;
     width: 100%;
-    background: orangered;
     bottom: 0;
     left: 0;
     line-height: 97rpx;
     text-align: center;
     color: white;
+}
+#panel view{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+#panel .left{
+    background:#f4f4f4;
+    color: #454545;
+}
+#panel .right{
+    background: #FA800a;
+    color: white;
+    font-size: 25rpx;
 }

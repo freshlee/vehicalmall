@@ -1,15 +1,22 @@
 <!--index.wxml-->
-<view class="header">
-    <image></image>
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="banner">
+    <swiper style="height:300rpx">
+        <block>
+            <swiper-item wx:for="{{banner}}" data-page="{{item.url}}" bindtap="jump">
+                <image src="{{item.icon}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
 </view>
 <view class="num">
-    <view class="total">110119120</view>
+    <view class="total">{{total}}</view>
     <view class="desc">位车主提交了卖车申请</view>
     <view class="penel">
-        <view class="inputbox"> <input placeholder="请输入您的手机号" /> </view>
-        <button class="mainbutton">预约卖车</button>
+        <view class="inputbox"> <input placeholder="请输入您的手机号" bindinput="inputnum"/> </view>
+        <button class="mainbutton" bindtap="tosell">预约卖车</button>
         <button class="free">免费资讯</button>
-        <button class="estimate">爱车估价</button>
+        <button class="estimate" bindtap="toestimate">爱车估价</button>
     </view>
 </view>
 <!-- 卖车流程 -->
@@ -22,11 +29,13 @@
 <!-- 疑问 -->
 <view class="indication">
     <view class="title">卖车指南</view>
-    <view class="interact" wx:for="{{4}}">
-    <view class="question"> <text>Q1</text> <text class="content">问题问题问题问题问题问题问题问题</text>  
+    <view class="interact" wx:for="{{reactive}}">
+    <view class="question"> <text>Q{{index+1}}</text> <text class="content">{{item.title}}</text>  
     <view class="expend" bindtap="statuschange" data-index="{{index}}">
     <image class="arrow {{expend[index]==0?'arrowoff':'arrowon'}}" src="../../../image/{{expend[index]==0?'arrowoff':'arrowon'}}.png"></image>
     </view></view>
-    <view class="answer" class="{{expend[index]==0?'expend':'conpressed'}}">回答回答回答回答回答回答回答回答回答回答回答回答回答回答</view>
+    <view class="answer" class="{{expend[index]==0?'expend':'conpressed'}}"><template is="wxParse" data="{{wxParseData:content[index].nodes}}" /></view>
     </view>
 </view>
+ <view id="copyright">{{versioninfo}}</view> 
+

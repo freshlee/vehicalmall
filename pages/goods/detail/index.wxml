@@ -1,13 +1,19 @@
 <!--index.wxml-->
 <!-- 头部BANNER -->
 <view class="banner">
-    <image src="../../../image/detail_banner.png"></image>
+        <swiper style="height:357rpx" indicator-dots="true">
+            <block wx:for="{{detail.thumburl}}">
+                <swiper-item style="height:100%">
+                <image src="{{item}}" style="height:357rpx"></image>
+                </swiper-item>
+            </block>
+        </swiper>
     <view class="info">
         <view class="title">
-            长城C50 2012款 1.5T 手动尊贵型
+            {{detail.goods.title}}
         </view>
         <view class="price">
-            <text class="standard">车主报价</text> 3.80万 <text class="tax">新车含税0.96万</text>
+            <text class="standard">车主报价</text> {{detail.goods.marketprice}}万 <text class="tax">新车含税{{detail.goods.productprice}}万</text>
         </view>
     </view>
 </view>
@@ -15,13 +21,38 @@
 <view class="server">
     <view class="title">服务保障 <text>(服务费3500元，最低服务费)</text> </view>
     <view class="logo_table">
-        <view class="logo_cell" wx:for="{{4}}">
+        <view class="logo_cell" wx:if="{{detail.goods.quality}}">
+            <view class="pic">
+                <image src="../../../image/tick.png"></image>
+            </view>
+            <view class="logo_name">100个人车</view>
+        </view>
+        <view class="logo_cell" wx:if="{{detail.goods.cash}}">
             <view class="pic">
                 <image src="../../../image/tick.png"></image>
             </view>
             <view class="logo_name">售后保障</view>
         </view>
+        <view class="logo_cell" wx:if="{{detail.goods.seven}}">
+            <view class="pic">
+                <image src="../../../image/tick.png"></image>
+            </view>
+            <view class="logo_name">14天无理由退款</view>
+        </view>
+        <view class="logo_cell" wx:if="{{detail.goods.invoince}}">
+            <view class="pic">
+                <image src="../../../image/tick.png"></image>
+            </view>
+            <view class="logo_name">杜绝事故车</view>
+        </view>
+        <view class="logo_cell" wx:if="{{detail.goods.repair}}">
+            <view class="pic">
+                <image src="../../../image/tick.png"></image>
+            </view>
+            <view class="logo_name">1年质保</view>
+        </view>
     </view>
+
     <view class="branch">
         <canvas style="width: 750rpx; height: 30rpx;" canvas-id="firstCanvas"></canvas>
         <view class="branchbox">
@@ -35,9 +66,29 @@
 <view class="car_info">
     <view class="para">
         <view class="parabox">
-            <view class="para_case" wx:for="{{6}}">
-                <view class="head">9.8万公里</view>
+            <view class="para_case">
+                <view class="head">{{detail.goods.mileage}}万公里</view>
                 <view class="footer">表显里程</view>
+            </view>
+            <view class="para_case">
+                <view class="head">{{carage}}</view>
+                <view class="footer">{{agetime}}</view>
+            </view>
+            <view class="para_case">
+                <view class="head">{{detail.goods.carnumber==1?'外地':'本地'}}</view>
+                <view class="footer">车牌所在地</view>
+            </view>
+            <view class="para_case">
+                <view class="head">{{detail.goods.carnumber==1?'自动':'手动'}}</view>
+                <view class="footer">变速箱</view>
+            </view>
+            <view class="para_case">
+                <view class="head">{{discharge}}</view>
+                <view class="footer">排放标准</view>
+            </view>
+            <view class="para_case">
+                <view class="head">{{detail.goods.displacement}}</view>
+                <view class="footer">排放量</view>
             </view>
         </view>
     </view>
@@ -49,7 +100,7 @@
             <view class="footer">倒车影像</view>
         </view>
     </view>
-    <view class="more">
+    <view class="more" bindtap="jumptopara" data-id="{{detail.goods.id}}">
         查看更多参数配置
     </view>
 </view>
@@ -68,49 +119,58 @@
         </view>
     </view>
     <view class="content">
-        <view><text>“</text>这车已经用了四年多测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试<text>”</text> </view>
+        <view><text>“</text>{{detail.goods.say}}<text>”</text> </view>
         <view class="date">
-            <view>2018年8月年检到期</view>
-            <view>2017年8月交强险到期</view>
-            <view>2017年8月商业险到期</view>
-            <view>0次过户记录</view>
+            <view>{{annual}}年检到期</view>
+            <view>{{complusion}}交强险到期</view>
+            <view>{{commerce}}商业险到期</view>
+            <!-- <view>0次过户记录</view> -->
         </view>
     </view>
 </view>
 <!-- 检测报告 -->
 <view style="background:white">
-<view class="desc">
-    <view class="seller">
-        <view class="pic">
-            <image src="../../../image/quality.png"></image>
-        </view>
-        <view class="info">
-            <view class="top">张全蛋</view>
-            <view class="bottom">
-                <view class="attr">富土康三号流水线王牌质检员</view>
+    <view class="desc">
+        <view class="seller">
+            <view class="pic">
+                <image src="../../../image/quality.png"></image>
+            </view>
+            <view class="info">
+                <view class="top"></view>
+                <view class="bottom">
+                    <view class="attr">{{detail.goods.subtitle}}</view>
+                </view>
             </view>
         </view>
-    </view>
-    <view class="content">
-        <view style="line-height: 45rpx">这车已经用了四年多测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试测试测试参数参数参数测试
-        <view class="warm">*以上为评估师验车时的车况，交易前会进行深度复检</view>
+        <view class="content">
+            <view style="line-height: 45rpx">{{detail.goods.condition}}
+                <view class="warm">*以上为评估师验车时的车况，交易前会进行深度复检</view>
+            </view>
+        </view>
+        <!-- 参数列 -->
+        <view class="paralist">
+            <view>
+                <image class="logo" src="../../../image/accident.png" /> <text>事故检测</text> <text>{{detail.goods.accidents.accident.length?detail.goods.accidents.accident.length:0}}项</text> </view>
+            <view>
+                <image class="logo" src="../../../image/safty.png" /><text>安全检测</text> <text>{{detail.goods.accidents.safe.length?detail.goods.accidents.safe.length:0}}项</text></view>
+            <view>
+                <image class="logo" src="../../../image/driver.png" /><text>驾驶检测</text> <text>{{detail.goods.accidents.drive.length?detail.goods.accidents.drive.length:0}}项</text></view>
+            <view>
+                <image class="logo" src="../../../image/decoration.png" /><text>外观检测</text> <text>{{detail.goods.accidents.interior.length?detail.goods.accidents.interior.length:0}}项</text></view>
         </view>
     </view>
-    <!-- 参数列 -->
-    <view class="paralist">
-        <view> <image class="logo" src="../../../image/accident.png"/> <text>事故检测</text>  <text>28项</text> </view>
-        <view> <image class="logo" src="../../../image/safty.png"/><text>安全检测</text> <text>18项</text></view>
-        <view> <image class="logo" src="../../../image/driver.png"/><text>驾驶检测</text> <text>17项</text></view>
-        <view> <image class="logo" src="../../../image/decoration.png"/><text>外观检测</text> <text>114项</text></view>
-    </view>
-</view>
-    <view class="more" style="border-top:2rpx solid #dfdfdf">查看详细检测报告</view>
+    <view class="more" bindtap="jumptoreport" data-id="{{detail.goods.id}}" style="border-top:2rpx solid #dfdfdf">查看详细检测报告</view>
 </view>
 <!-- 保障 -->
 <view class="surance">
     <view wx:for="{{4}}">
-        <view class="head"> <image src="../../../image/difference.png"/> </view>
+        <view class="head">
+            <image src="../../../image/difference.png" /> </view>
         <view class="footer">不赚差价</view>
     </view>
 </view>
-<view id="panel">预约看车</view>
+<view id="panel" bindtap="collect">
+    <view bindtap="{{favor==0?'concern':'disconcern'}}" class="left">{{favor==0?'收藏':'取消收藏'}}</view>
+    <view class="right" bindtap="tobook" data-phone="{{detail.goods.phone}}">预约看车</view>
+</view>
+ <view id="copyright">{{versioninfo}}</view> 

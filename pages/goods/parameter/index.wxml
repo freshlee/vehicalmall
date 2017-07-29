@@ -1,55 +1,231 @@
 <!--index.wxml-->
 <view class="header">
-    <view> <text class="tag">车辆名称：</text>现代名图 2014款 1.8L 自动智能型</view>
-    <view> <text class="tag">评估师：</text>梁宪江</view>
-    <view> <text class="tag">检测时间：</text>2017-7-24</view>
+    <view> <text class="tag">车辆名称：</text>{{detail.goods.title}}</view>
+    <view> <text class="tag">评估师：</text>{{detail.goods.subtile}}</view>
+    <view> <text class="tag">检测时间：</text>{{createtime}}</view>
 </view>
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="1">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 基本参数
     <image src="../../../image/arrowon.png" class="{{cases[1]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[1]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
-        <image src="../../../image/tickeron.png"></image>
+    <view class="list"> <text>厂商</text>
+        <view class="value">{{detail.carbodys.jbaa?detail.carbodys.jbaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>级别</text>
+        <view class="value">{{detail.carbodys.jbbb?detail.carbodys.jbbb:'无'}}</view>
+    </view>
+    <view class="list"> <text>发动机</text>
+        <view class="value">{{detail.carbodys.jbcc?detail.carbodys.jbcc:'无'}}</view>
+    </view>
+    <view class="list"> <text>变速箱</text>
+        <view class="value">{{detail.carbodys.jbdd?detail.carbodys.jbdd:'无'}}</view>
+    </view>
+    <view class="list"> <text>车身结构</text>
+        <view class="value">{{detail.carbodys.jbee?detail.carbodys.jbee:'无'}}</view>
+    </view>
+    <view class="list"> <text>长*款*高(mm)</text>
+        <view class="value">{{detail.carbodys.jbff?detail.carbodys.jbff:'无'}}</view>
+    </view>
+    <view class="list"> <text>轴距(mm)</text>
+        <view class="value">{{detail.carbodys.jbgg?detail.carbodys.jbgg:'无'}}</view>
+    </view>
+    <view class="list"> <text>行李箱容积(L)</text>
+        <view class="value">{{detail.carbodys.jbhh?detail.carbodys.jbhh:'无'}}</view>
+    </view>
+    <view class="list"> <text>整备质量(kg)</text>
+        <view class="value">{{detail.carbodys.jbkk?detail.carbodys.jbkk:'无'}}</view>
+    </view>
+    <view class="list"> <text>车身颜色</text>
+        <view class="value">{{detail.carbodys.jbll?detail.carbodys.jbll:'无'}}</view>
     </view>
 </view>
 </view>
 
-
 <view class="contain">
 <view class="title" bindtap="click" data-index="2">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 发动机参数
     <image src="../../../image/arrowon.png" class="{{cases[2]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[2]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
-        <image src="../../../image/tickeron.png"></image>
+    <view class="list"> <text>排量(L)</text>
+        <view class="value">{{detail.engines.enaa?detail.engines.enaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>进气形式</text>
+        <view class="value">{{detail.engines.enbb?detail.engines.enbb:'无'}}</view>
+    </view>
+    <view class="list"> <text>气缸</text>
+        <view class="value">{{detail.engines.encc?detail.engines.encc:'无'}}</view>
+    </view>
+    <view class="list"> <text>最大马力(Ps)</text>
+        <view class="value">{{detail.engines.endd?detail.engines.endd:'无'}}</view>
+    </view>
+    <view class="list"> <text>最大扭矩(N*m)</text>
+        <view class="value">{{detail.engines.enee?detail.engines.enee:'无'}}</view>
+    </view>
+    <view class="list"> <text>燃料类型</text>
+        <view class="value">{{detail.engines.enff?detail.engines.enff:'无'}}</view>
+    </view>
+    <view class="list"> <text>燃料标号</text>
+        <view class="value">{{detail.engines.engg?detail.engines.engg:'无'}}</view>
+    </view>
+    <view class="list"> <text>供油方式</text>
+        <view class="value">{{detail.engines.enhh?detail.engines.enhh:'无'}}</view>
+    </view>
+    <view class="list"> <text>排放标准</text>
+        <view class="value">{{detail.engines.enkk?detail.engines.enkk:'无'}}</view>
     </view>
 </view>
 </view>
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="3">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 底盘及制动
     <image src="../../../image/arrowon.png" class="{{cases[3]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[3]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
-        <image src="../../../image/tickeron.png"></image>
+    <view class="list"> <text>驱动方式</text>
+        <view class="value">{{detail.chassiss.chaa?detail.chassiss.chaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>助力类型</text>
+        <view class="value">{{detail.chassiss.chbb?detail.chassiss.chbb:'无'}}</view>
+    </view>
+    <view class="list"> <text>前悬挂类型</text>
+        <view class="value">{{detail.chassiss.chcc?detail.chassiss.chcc:'无'}}</view>
+    </view>
+    <view class="list"> <text>后悬挂类型</text>
+        <view class="value">{{detail.chassiss.chdd?detail.chassiss.chdd:'无'}}</view>
+    </view>
+    <view class="list"> <text>前制动类型</text>
+        <view class="value">{{detail.chassiss.chee?detail.chassiss.chee:'无'}}</view>
+    </view>
+    <view class="list"> <text>后制动类型</text>
+        <view class="value">{{detail.chassiss.chff?detail.chassiss.chff:'无'}}</view>
+    </view>
+    <view class="list"> <text>驻车制动类型</text>
+        <view class="value">{{detail.chassiss.chgg?detail.chassiss.chgg:'无'}}</view>
+    </view>
+    <view class="list"> <text>前轮胎规格</text>
+        <view class="value">{{detail.chassiss.chhh?detail.chassiss.chhh:'无'}}</view>
+    </view>
+    <view class="list"> <text>后轮胎规格</text>
+        <view class="value">{{detail.chassiss.chkk?detail.chassiss.chkk:'无'}}</view>
     </view>
 </view>
 </view>
 
 <view class="contain">
 <view class="title" bindtap="click" data-index="4">
-    <view class="line"></view> 事故排查
+    <view class="line"></view> 安全配置
     <image src="../../../image/arrowon.png" class="{{cases[4]==1?'arrowon':'arrowoff'}}"></image>
 </view>
 <view class="box {{cases[4]==1?'expend':'compressed'}}">
-    <view class="list" wx:for="{{5}}">1.左西柱
-        <image src="../../../image/tickeron.png"></image>
+    <view class="list"> <text>主副驾驶安全气囊</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>前后排侧气囊</text>
+        <view class="value">{{detail.securitys.sebb?detail.securitys.sebb:'无'}}</view>
+    </view>
+    <view class="list"> <text>前后排头部气囊</text>
+        <view class="value">{{detail.securitys.secc?detail.securitys.secc:'无'}}</view>
+    </view>
+    <view class="list"> <text>胎压检测</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>车内中控锁</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>儿童座椅接口</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>无钥匙启动</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>防抱死系统(ABS)</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>车身稳定控制(ESP)</text>
+        <view class="value">{{detail.securitys.seaa?detail.securitys.seaa:'无'}}</view>
     </view>
 </view>
 </view>
+
+<view class="contain">
+<view class="title" bindtap="click" data-index="5">
+    <view class="line"></view> 外部配置
+    <image src="../../../image/arrowon.png" class="{{cases[5]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[5]==1?'expend':'compressed'}}">
+    <view class="list"> <text>电动天窗</text>
+        <view class="value">{{detail.externals.exaa?detail.externals.exaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>全景天窗</text>
+        <view class="value">{{detail.externals.exbb?detail.externals.exbb:'无'}}</view>
+    </view>
+    <view class="list"> <text>电动吸合门</text>
+        <view class="value">{{detail.externals.excc?detail.externals.excc:'无'}}</view>
+    </view>
+    <view class="list"> <text>感应后备箱</text>
+        <view class="value">{{detail.externals.exdd?detail.externals.exdd:'无'}}</view>
+    </view>
+    <view class="list"> <text>感应雨刷</text>
+        <view class="value">{{detail.externals.exee?detail.externals.exee:'无'}}</view>
+    </view>
+    <view class="list"> <text>后雨刷</text>
+        <view class="value">{{detail.externals.exff?detail.externals.exff:'无'}}</view>
+    </view>
+    <view class="list"> <text>前后电动车窗</text>
+        <view class="value">{{detail.externals.exgg?detail.externals.exgg:'无'}}</view>
+    </view>
+    <view class="list"> <text>后视镜电动调节</text>
+        <view class="value">{{detail.externals.exhh?detail.externals.exhh:'无'}}</view>
+    </view>
+    <view class="list"> <text>后视镜加热</text>
+        <view class="value">{{detail.externals.exkk?detail.externals.exkk:'无'}}</view>
+    </view>
+</view>
+</view>
+
+<view class="contain">
+<view class="title" bindtap="click" data-index="6">
+    <view class="line"></view> 内部配置
+    <image src="../../../image/arrowon.png" class="{{cases[6]==1?'arrowon':'arrowoff'}}"></image>
+</view>
+<view class="box {{cases[6]==1?'expend':'compressed'}}">
+    <view class="list"> <text>多功能方向盘</text>
+        <view class="value">{{detail.insides.inaa?detail.insides.inaa:'无'}}</view>
+    </view>
+    <view class="list"> <text>定速巡航</text>
+        <view class="value">{{detail.insides.inbb?detail.insides.inbb:'无'}}</view>
+    </view>
+    <view class="list"> <text>空调</text>
+        <view class="value">{{detail.insides.incc?detail.insides.incc:'无'}}</view>
+    </view>
+    <view class="list"> <text>自动空调</text>
+        <view class="value">{{detail.insides.indd?detail.insides.indd:'无'}}</view>
+    </view>
+    <view class="list"> <text>GPS巡航</text>
+        <view class="value">{{detail.insides.inee?detail.insides.inee:'无'}}</view>
+    </view>
+    <view class="list"> <text>倒车雷达</text>
+        <view class="value">{{detail.insides.inff?detail.insides.inff:'无'}}</view>
+    </view>
+    <view class="list"> <text>倒车影像系统</text>
+        <view class="value">{{detail.insides.ingg?detail.insides.ingg:'无'}}</view>
+    </view>
+    <view class="list"> <text>真皮座椅</text>
+        <view class="value">{{detail.insides.inhh?detail.insides.inhh:'无'}}</view>
+    </view>
+    <view class="list"> <text>前后排座椅加热</text>
+        <view class="value">{{detail.insides.inkk?detail.insides.inkk:'无'}}</view>
+    </view>
+</view>
+</view>
+ <view id="copyright">{{versioninfo}}</view> 
+
+
+
+
+

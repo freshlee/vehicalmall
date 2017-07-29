@@ -1,2 +1,14 @@
-<!--index.wxml-->
-<text>index.wxml</text>
+<view class="lists">
+    <view class="li" wx:for="{{list}}">
+        <view class="rec_pic">
+            <image src="../../../image/detail_banner.png"></image>
+        </view>
+        <view class="rec_name">
+            <view class="carname">{{item.goodsname}}</view>
+            <view class="info">预约时间:{{item.date}}</view>
+            <!-- <view class="price">6.60万 <text class="newprice">新车价 <text>10.83万</text></text> -->
+            <!-- </view> -->
+        </view>
+    </view>
+</view>
+ <view id="copyright">{{versioninfo}}</view> 

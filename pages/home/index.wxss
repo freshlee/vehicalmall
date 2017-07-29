@@ -155,7 +155,7 @@ page {
 .recommend .rec_name .price {
     position: absolute;
     bottom: 0;
-    color: orangered;
+    color: #FA800a;
 }
 
 .recommend .rec_name .price text {
@@ -393,4 +393,9 @@ page {
     height: 50rpx;
     width: 50rpx;
     transform: rotate(90deg) translateX(5rpx);
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+    font-size: 25rpx;
 }
