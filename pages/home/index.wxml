@@ -80,7 +80,7 @@
             <button form-type="submit" id="submit" style="display:none"></button>
         </view>
     </form>
-    <view class="recommend">
+    <view class="recommend" style="padding:0 30rpx;margin-top:0">
         <view class="li" wx:for="{{searchlist}}" bindtap="jumptodetail" data-id="{{item.id}}">
             <view class="rec_pic">
                 <image src="{{item.thumb}}"></image>
@@ -129,3 +129,4 @@
 </view>
 
  <view id="copyright">{{versioninfo}}</view> 
+<loading hidden="{{hidden}}"></loading>

@@ -111,10 +111,10 @@
             <image src="../../../image/protrait.png"></image>
         </view>
         <view class="info">
-            <view class="top">赵先生</view>
+            <view class="top">{{detail.goods.owner}}</view>
             <view class="bottom">
-                <view class="attr">个体</view>
-                <view class="location">南海</view>
+                 <!-- <view class="attr">个体</view> -->
+                <view class="location">{{detail.goods.city}}</view> 
             </view>
         </view>
     </view>

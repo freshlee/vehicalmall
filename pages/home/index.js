@@ -9,6 +9,9 @@ Page({
 
     },
     dosearch:function(e){
+        this.setData({
+            hidden:false,
+        })
         var THIS=this;
         var title=e.detail.value; 
         for (var key in title){
@@ -25,6 +28,7 @@ Page({
             success:function(res){
                 THIS.setData({
                     searchlist: res.data.dat.goods,
+                    hidden: true,
                 })
             }
         })
@@ -114,6 +118,9 @@ Page({
     },
     onLoad: function (options) {
         var THIS = this;
+        this.setData({
+            hidden:true,
+        })
         wx.getLocation({
             success: function (res) {
                 console.log(res);
